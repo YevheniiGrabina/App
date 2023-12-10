@@ -1,0 +1,29 @@
+.Burgermenu {
+    position: absolute;
+    left: 0px;
+    width: 70%;
+    height: 500px;
+    background-color: white;
+    top: 0;
+
+}
+
+.burgerTitle {
+   justify-content: center;
+   padding-top: 30px;
+}
+
+.menuItem0{
+    top: 0;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+.menuItem1,
+.menuItem2,
+.menuItem3,
+.menuItem4,
+.menuItem5{
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    margin-left: 10px;
+}

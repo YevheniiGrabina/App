@@ -1,0 +1,13 @@
+.cartmodal{
+    position: absolute;
+position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998;
+    width: 460px;
+    max-width: 80%;
+    background: white;
+            
+          
+}
