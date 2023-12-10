@@ -1,29 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './Cart.module.css';
 
+const Cart = ({ items, closeCart, removeFromCart }) => {
+  const [itemCounts, setItemCounts] = useState(items.map(() => 1));
 
+  const increaseCount = (index) => {
+    const newCounts = [...itemCounts];
+    newCounts[index]++;
+    setItemCounts(newCounts);
+  };
 
-const Cart = ({ items, closeCart }) => {
+  const decreaseCount = (index) => {
+    const newCounts = [...itemCounts];
+    if (newCounts[index] > 1) {
+      newCounts[index]--;
+      setItemCounts(newCounts);
+    }
+  };
+
+  const getTotalCost = () => {
+    return items.reduce((total, item, index) => total + item.price * itemCounts[index], 0);
+  };
+
   return (
     <div className={css.cartmodal}>
-          <h2>Корзина</h2>
-          <button onClick={closeCart}>Х</button>
+      <h2 className={css.carttitle}>Кошик ({items.length})</h2>
+      <button className={css.cartclosebtn} onClick={closeCart}>Х</button>
       {items.length === 0 ? (
-        <p>Корзина пуста</p>
+        <p>Ви ще нічого не додали</p>
       ) : (
-        <ul>
-          {items.map((item, id) => (
-            <li key={id}>
-              <img src={item.url} alt={item.title} />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <p>Цена: {item.price}</p>
-              <p>Количество: {item.quantity}</p>
-            </li>
-          ))}
-        </ul>
-          )}
-          
+        <>
+          <ul className={css.cartlist}>
+            {items.map((item, index) => (
+              <li className={css.cartitem} key={item.id}>
+                <img className={css.cartimg} src={item.url} alt={item.title} />
+                <h3 className={css.cartitemtitle}>{item.title}</h3>
+                <p className={css.cartprice}>Ціна: {item.price}</p>
+                <button className={css.countmin} onClick={() => decreaseCount(index)}>-</button>
+                <p className={css.cartitemcount}> {itemCounts[index]}</p>
+                <button className={css.countplus} onClick={() => increaseCount(index)}>+</button>
+                <button className={css.itemclosebtn} onClick={() => removeFromCart(item)}>х</button>
+              </li>
+            ))}
+            </ul>
+             <p>Всього:  {getTotalCost()} Грн.</p>
+          <button className={css.checkoutbtn}>Оформить заказ</button>
+        </>
+      )}
+     
     </div>
   );
 };

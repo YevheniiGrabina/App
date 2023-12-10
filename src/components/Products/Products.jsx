@@ -11,11 +11,11 @@ const Product = ({
    }) => {
     return (
         <div className={css.product}>
-            <img src={url} alt={1} width='100px' />
-            <p> {title} </p>
-            <p>{description} </p>
-            <p>{price} Грн  </p>
-            <p>{quantity < 10 ? 'заканчивается' : 'есть в наличии'}</p>
+            <img className={css.productimg} src={url} alt={1} width='100px' />
+            <p className={css.productTitle}> {title} </p>
+            <p className={css.productdesc}>{description} </p>
+            <p className={css.productprice}>{price} ₴ </p>
+            <p className={css.productquan}>{quantity < 10 ? 'заканчивается' : 'есть в наличии'}</p>
         </div>
     );
 };
