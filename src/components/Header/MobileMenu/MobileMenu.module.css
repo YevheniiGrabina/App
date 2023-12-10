@@ -1,29 +1,38 @@
 .Burgermenu {
-    position: absolute;
-    left: 0px;
-    width: 70%;
-    height: 500px;
-    background-color: white;
+    position: fixed;
     top: 0;
-
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    /* Tomato color */
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
 .burgerTitle {
-   justify-content: center;
-   padding-top: 30px;
+    color: #000000;
+    /* White color */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
-.menuItem0{
-    top: 0;
-    margin-bottom: 30px;
-    margin-left: 10px;
-}
+.menuItem0,
 .menuItem1,
 .menuItem2,
 .menuItem3,
-.menuItem4,
-.menuItem5{
+.menuItem4 {
+    color: #000000;
+    /* White color */
+    font-size: 18px;
     margin-bottom: 10px;
-    border-bottom: 1px solid;
-    margin-left: 10px;
+    cursor: pointer;
+}
+
+.burgerClose{
+      margin-left: 230px;
+      position: absolute;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MobileMenu.module.css'
+import css from './MobileMenu.module.css'
 
 const MobileMenu = ({ closeMobileMenu }) => {
 
@@ -8,13 +8,13 @@ const menuItems = ['Меню', 'Головна', 'Магазин', 'Достав
   
 
   return (
-    <div className={styles.Burgermenu}>
-      <button type='button' onClick={closeMobileMenu}>
+    <div className={css.Burgermenu}>
+      <button className={css.burgerClose} type='button' onClick={closeMobileMenu}>
         X
       </button>
-      <div className={styles.burgerTitle}>
+      <div className={css.burgerTitle}>
       {menuItems.map((item, index) => (
-        <p key={index} className={styles[`menuItem${index}`]}>
+        <p key={index} className={css[`menuItem${index}`]}>
           {item}
         </p>
       ))}

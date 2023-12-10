@@ -27,7 +27,6 @@ const ProductsList = ({ items, addToCart }) => {
                    <Products
                     url={item.url}
                     title={item.title}
-                    description={item.description}
                     price={item.price}
                     quontity={item.quantity}
                 />
