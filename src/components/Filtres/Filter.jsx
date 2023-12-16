@@ -9,22 +9,26 @@ const Filter = ({ onFilterChange }) => {
     onFilterChange(filter);
   };
 
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
   return (
     <div className={css.filterContainer}>
-      <h2></h2>
+      <h2>Фильтр по брендам:</h2>
       <button
-        className={selectedFilter === 'A' ? 'brand-1' : 'brand-1'}
-        onClick={() => handleFilterChange('brand1')}
+        className={selectedFilter === 'ALL' ? css.selected : ''}
+        onClick={() => handleFilterChange('ALL')}
       >
-        A
+        ВСЕ
       </button>
-      <button
-        className={selectedFilter === 'brand2' ? css.selected : ''}
-        onClick={() => handleFilterChange('brand2')}
-      >
-        B
-      </button>
-      {/* Добавьте другие фильтры по необходимости */}
+      {alphabet.split('').map((letter) => (
+        <button
+          key={letter}
+          className={selectedFilter === letter ? css.selected : ''}
+          onClick={() => handleFilterChange(letter)}
+        >
+          {letter}
+        </button>
+      ))}
     </div>
   );
 };

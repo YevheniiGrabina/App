@@ -4,12 +4,14 @@ import css from './BrandList.module.css';
 
 
 const Brand = ({
-    url
+    url,
+    title,
     
 }) => {
     return (
         <div className={css.brand}>
             <img className={css.brandtimg} src={url} alt={1} width='100px' />
+            <p className={css.brandTitle}> {title} </p>
         </div>
     );
 };

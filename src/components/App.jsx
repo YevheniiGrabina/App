@@ -5,6 +5,8 @@ import ProductsList from './ProductList/ProductsList';
 import Brands from './pages/BrandPage';
 import product from './data/product.json';
 
+
+
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
 

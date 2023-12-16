@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Filter from '../Filtres/Filter';
 import BrandList from '../BrandList/BrandList';
+import brands from '../data/brands.json'
 import css from './Pages.module.css';
 
 const Brands = () => {
+  
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('ALL');
 
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
@@ -35,7 +37,7 @@ const Brands = () => {
       <div className={css.contentContainer}>
         <Filter onFilterChange={handleFilterChange} />
         {/* Передаем выбранный фильтр в BrandList */}
-        <BrandList selectedFilter={selectedFilter} />
+        <BrandList items={brands} selectedFilter={selectedFilter} />
       </div>
     </div>
   );

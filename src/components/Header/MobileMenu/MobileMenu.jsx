@@ -16,7 +16,7 @@ const MobileMenu = ({ closeMobileMenu }) => {
   return (
     <div className={css.Burgermenu}>
       <h1>Меню</h1>
-      <p>Головна</p>
+      <Link to="/App">Головна</Link>
       <div className={css.menuLink} onClick={toggleDropdown}>
         Магазин
         {isDropdownOpen && (
