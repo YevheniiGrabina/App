@@ -22,7 +22,7 @@ const MobileMenu = ({ closeMobileMenu }) => {
         {isDropdownOpen && (
           <div className={css.dropdownMenu}>
             <Link to="/brands" onClick={handleBrandsClick} className={css.dropdownItem}>
-              Бренды
+              Бренди
             </Link>
             {/* Добавьте другие элементы выпадающего меню при необходимости */}
           </div>
