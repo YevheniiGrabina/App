@@ -1,3 +1,18 @@
 .brandTitle{
     display: none;
 }
+.Brandlist{
+    display: grid;
+        grid-template-columns: repeat(2, 200px);
+        justify-content: space-between;
+        grid-row-gap: 5px;
+        grid-column-gap: 5px;
+        align-items: center;
+        
+}
+.Branditem{
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+}

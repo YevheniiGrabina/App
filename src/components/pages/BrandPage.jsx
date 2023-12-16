@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Filter from '../Filtres/Filter';
 import BrandList from '../BrandList/BrandList';
-import brands from '../data/brands.json'
+import brands from '../data/brands.json';
 import css from './Pages.module.css';
 
 const Brands = () => {
@@ -14,7 +14,8 @@ const Brands = () => {
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
   };
-
+  
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -38,6 +39,7 @@ const Brands = () => {
         <Filter onFilterChange={handleFilterChange} />
         {/* Передаем выбранный фильтр в BrandList */}
         <BrandList items={brands} selectedFilter={selectedFilter} />
+        
       </div>
     </div>
   );

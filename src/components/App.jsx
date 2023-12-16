@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import ProductsList from './ProductList/ProductsList';
 import Brands from './pages/BrandPage';
 import product from './data/product.json';
+import FixMenu from './FixMenu/FixMenu';
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
           <>
             <Header cartItems={cartItems} removeFromCart={removeFromCart} />
             <ProductsList items={product} addToCart={addToCart} />
+            <FixMenu cartItems={cartItems} />
           </>
         }
       />
