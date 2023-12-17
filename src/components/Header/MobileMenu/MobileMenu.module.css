@@ -1,3 +1,15 @@
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.3s ease;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.3s ease;
+}
+
 .Burgermenu {
     position: fixed;
     top: 0;
@@ -6,42 +18,29 @@
     height: 100%;
     background-color: #ffffff;
     /* Tomato color */
-    padding: 20px;
-    overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
 }
+
 .MenuPage{
-    position: absolute;
+position: absolute;
 width: 100%;
 height: 100%;
 top: 0;
 background-color: #b78d8d;
 }
 
-.burgerTitle {
+.menuTitle {
     color: #000000;
     /* White color */
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 40px;
+    padding: 20px 20px 19px 20px;
 }
-
-
-.burgerClose{
-      margin-left: 120px;
-      top: 0;
-      position: absolute;
-}
-
 
 .Burgermenu {
-    display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
     border: 1px solid #dddddd;
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -52,31 +51,55 @@ background-color: #b78d8d;
     margin: 10px 0;
     font-size: 18px;
     transition: color 0.3s ease-in-out;
+    padding: 20px 20px 19px 20px;
+    border-top: 1px solid;
 }
-
+.dropmenuLink{
+    text-decoration: none;
+        color: #333333;
+        margin: 10px 0;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+        padding-left: 20px;
+        border-bottom: 1px solid;
+        border-top: 1px solid;
+}
 .menuLink:hover {
     color: #ff5733;
     /* Измените цвет при наведении по вашему вкусу */
 }
 
 .burgerClose {
-    background-color: #ff5733;
+    background-color: #e6afc0;
     /* Цвет кнопки закрытия бургера */
     color: #ffffff;
-    border: none;
-    margin-left: 120px;
+    border: 1px solid ;
+    border-color: #d1d1d1;
+    border-radius: 100%;
+    padding: 1px;
+    height: 50px;
+    width: 50px;
+    margin-left: 220px;
     top: 0;
-    position: absolute;
+    position: fixed;
 }
 
 .burgerClose:hover {
     background-color: #e64a2b;
     /* Измените цвет при наведении по вашему вкусу */
 }
+.dropdownMenu{
+    
+    padding-top: 30px;
+    height: 50px;
+    align-items: center;
+    
+      
+}
 .dropdownItem{
-    text-decoration: none;
+        text-decoration: none;
         color: #333333;
-        margin: 10px 0;
         font-size: 18px;
         transition: color 0.3s ease-in-out;
+       height: 50px;
 }
