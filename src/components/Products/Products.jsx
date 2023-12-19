@@ -21,8 +21,8 @@ const Product = ({
 };
 
 Product.propTypes = {
-    url: PropTypes.string,
-    title: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     description: PropTypes.string,
     price: PropTypes.number,
     quantity:PropTypes.number,

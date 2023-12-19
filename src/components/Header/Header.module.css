@@ -1,13 +1,15 @@
 .navcontainer{
 /* background-image: url(/src/images/1627003882_11-p-fon-dlya-saita-rozovii-11.png); */
-display: block;
-    position: fixed;
+
+position: fixed;
 display: flex;
-border-bottom: solid 1px color(red ) ;
+background-color: #fff;
 padding: 10px;
 width: 95%;
+height: 80px;
 top: 0;
 align-items: center;
+border-bottom: 1px coral;
 }
 
 .Burgermenu{
@@ -21,13 +23,15 @@ align-items: center;
 }
 .logo{
     display: block;
-        margin-left: 84px;
+        margin-left: auto;
         margin-right: auto;
+        border: 1px solid crimson;
+        border-radius: 100%;
    
 }
 .logoimg {
-    height: 100px;
-    width: 100px;
+    height: 130px;
+    width: 130px;
     border-radius: 100%;
 }
 .navright{
@@ -42,7 +46,7 @@ align-items: center;
     background: transparent;
         border: none;
         margin-left: auto;
-        position: relative;
+        /* position: relative; */
 }
 .mobilesearch {
     background: transparent;
@@ -55,15 +59,10 @@ align-items: center;
 }
 .cartCounter {
     background-color: red;
-    /* Цвет фона для счетчика */
     color: white;
-    /* Цвет текста для счетчика */
     border-radius: 50%;
-    /* Для круглой формы */
     padding: 2px 6px;
-    /* Внутренний отступ для красоты */
     position: absolute;
-    /* Позиционирование относительно иконки корзины */
-    top: 0;
-    right: 0;
+    top: 20px;
+    
 }

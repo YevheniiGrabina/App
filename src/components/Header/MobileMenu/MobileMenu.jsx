@@ -1,58 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import css from './MobileMenu.module.css';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 const MobileMenu = ({ closeMobileMenu }) => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
+ 
   const handleBrandsClick = () => {
-    closeMobileMenu();
-  };
-
-  useEffect(() => {
-    // При изменении isVisible восстанавливаем его обратно в true
-    if (!isVisible) {
-      const timeoutId = setTimeout(() => {
-        setDropdownOpen(false);
-        setIsVisible(false);
-      }, 50); // Небольшая задержка перед началом анимации
-
-      return () => clearTimeout(timeoutId);
-    }
-  }, [isVisible]);
-
-  const handleMenuClose = () => {
-    setIsVisible(false);
+    closeMobileMenu(); // Закрыть мобильное меню
   };
 
   return (
-    <div className={`${css.Burgermenu} ${isVisible ? css.visible : css.hidden}`}>
-      <h1 className={css.menuTitle}>Меню</h1>
-      <Link className={css.menuLink} to="/App" onClick={handleMenuClose}>
-        Головна
-      </Link>
-      <div className={css.dropmenuLink} onClick={toggleDropdown}>
-        Магазин
-        {isDropdownOpen && (
-          <div className={css.dropdownMenu}>
-            <Link to="/brands" onClick={handleBrandsClick} className={css.dropdownItem}>
-              Бренди
-            </Link>
-          </div>
-        )}
-      </div>
-      <p className={css.menuLink}>Оплата і доставка</p>
-      <p className={css.menuLink}>Контакти</p>
-      <button className={`${css.burgerClose} ${css.menuLink}`} type="button" onClick={handleMenuClose}>
+    <div className={css.Burgermenu}>
+      <h1 className={css.menuTitle}>МЕНЮ</h1>
+      <button className={`${css.burgerClose} ${css.menuLink}`} type='button' onClick={closeMobileMenu}>
         &#8592;
       </button>
-    </div>
+        <AccordionSummary
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+           <Typography> <Link  to="/App">Головна</Link></Typography>
+        </AccordionSummary>
+       <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Магазин</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Link to="/brands" onClick={handleBrandsClick}>
+              Бренди
+            </Link>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Оплата і доставка</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+           доставка
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Контакти</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Телефон
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </div >
+      
   );
 };
 
 export default MobileMenu;
+
