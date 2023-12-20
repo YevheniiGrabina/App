@@ -47,10 +47,10 @@ class Header extends Component {
     });
   };
 
-     addToCart = (item) => {
-    // Логика добавления товара в корзину
-    console.log('Товар добавлен', item);
-  };
+    addToCart = (item) => {
+  // Логика добавления товара в корзину
+  this.props.addToCart(item);
+};
 
 
   render() {
@@ -76,10 +76,9 @@ class Header extends Component {
             />
           </button>
 
-           {this.state.isSearchOpen && (
-         
-          <SearchModal isSearchOpen={this.closeSearch} addToCart={this.addToCart} />
-        )}
+          {this.state.isSearchOpen && (
+            <SearchModal isSearchOpen={this.closeSearch} addToCart={this.addToCart} />
+          )}
           <div>
             <button className={css.basket} onClick={this.openCart}>
               <img src={basket} alt="корзина" width={30} height={30} />

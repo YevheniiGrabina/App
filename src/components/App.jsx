@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
@@ -8,24 +9,24 @@ import FixMenu from './FixMenu/FixMenu';
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
- 
 
   const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    setCartItems((prevItems) => [...prevItems, item]);
   };
 
-  const removeFromCart = (item) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-  };
-
+const removeFromCart = (item) => {
+  setCartItems(prevCartItems => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
+  console.log('Cart after removing:', cartItems);
+};
   return (
     <Routes>
       <Route
-        path="/App" element={
+        path="/App"
+        element={
           <>
-            <Header cartItems={cartItems} removeFromCart={removeFromCart} />
-            <ProductsList items={product} addToCart={addToCart} /> 
-            <FixMenu cartItems={cartItems} />
+            <Header cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
+            <ProductsList items={product} addToCart={addToCart} />
+            <FixMenu cartItems={cartItems} removeFromCart={removeFromCart} />
           </>
         }
       />
@@ -33,3 +34,4 @@ export default function App() {
     </Routes>
   );
 }
+

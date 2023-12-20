@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import css from './Cart.module.css';
 
 const Cart = ({ items, closeCart, removeFromCart }) => {
+   console.log("Adding to cart:", items);
   const [itemCounts, setItemCounts] = useState(items.map(() => 1));
 
   const increaseCount = (index) => {
@@ -17,6 +19,7 @@ const Cart = ({ items, closeCart, removeFromCart }) => {
       setItemCounts(newCounts);
     }
   };
+  
 
   const getTotalCost = () => {
     return items.reduce((total, item, index) => total + item.price * itemCounts[index], 0);

@@ -1,47 +1,48 @@
 import React, { useState } from 'react';
-import Product from "../Products/Products"
+import Products from "../Products/Products"
 import  css from'./ProductList.module.css'
 
 const ProductsList = ({ items, addToCart }) => {
-  const [selectedItems, setSelectedItems ] = useState(items);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const openModal = (item) => {
-    setSelectedItems([item]);
+    setSelectedItem(item);
   };
 
   const closeModal = () => {
-    setSelectedItems(items);
+    setSelectedItem(null);
   };
 
   const handleAddToCart = (item) => {
     addToCart(item);
     closeModal();
   };
+  
 
   return (
     <div>
       <ul className={css.productlist}>
-        {selectedItems.map((item) => (
+        {items.map((item) => (
             <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
-                   <Product
+                   <Products
                     url={item.url}
                     title={item.title}
                     price={item.price}
-                    quantity={item.quantity}
+                    quontity={item.quantity}
                 />
           </li>
         ))}
       </ul>
 
-      {selectedItems.length === 1 && (
+      {selectedItem && (
         <div className={css.modal}>
             <div className={css.modalcontent}>
-            <img src={selectedItems[0].url} alt={selectedItems[0].title} />
-            <p>{selectedItems[0].title}</p>
-            <p>{selectedItems[0].description}</p>
-            <p>{selectedItems[0].price}</p>
-            <p>{selectedItems[0].quantity}</p>
-             <button onClick={() => handleAddToCart(selectedItems[0])}>Добавить в корзину </button>
+            <img src={selectedItem.url} alt={selectedItem.title} />
+            <p>{selectedItem.title}</p>
+            <p>{selectedItem.description}</p>
+            <p>{selectedItem.price}</p>
+            <p>{selectedItem.quantity}</p>
+             <button onClick={() => handleAddToCart(selectedItem)}>Добавить в корзину </button>
             <button onClick={closeModal}>Закрыть</button>
           </div>
         </div>
