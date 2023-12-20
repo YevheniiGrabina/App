@@ -1,6 +1,6 @@
 
 .searchTerm {
-    width: 95%;
+    width: 60%;
     border: 3px solid crimson;
     padding: 8px;
     height: 20px;
@@ -9,6 +9,7 @@
     outline: none;
     color: #9DBFAF;
     justify-content: center;
+    margin-left: 40px;
 }
 
 .searchTerm:focus {

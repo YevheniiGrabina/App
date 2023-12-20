@@ -84,13 +84,13 @@ class Header extends Component {
               <img src={basket} alt="корзина" width={30} height={30} />
               <span className={css.cartCounter}>{cartItems.length}</span>
             </button>
-
+            </div>
             {this.state.isCartOpen && (
               <Cart items={cartItems} closeCart={this.closeCart} removeFromCart={removeFromCart} />
             )}
           </div>
         </div>
-      </div>
+     
     );
   }
 }
