@@ -1,12 +1,11 @@
 
 .searchTerm {
-    width: 100%;
+    width: 95%;
     border: 3px solid crimson;
-    border-right: none;
     padding: 8px;
     height: 20px;
     margin-top: 37px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px ;
     outline: none;
     color: #9DBFAF;
     justify-content: center;

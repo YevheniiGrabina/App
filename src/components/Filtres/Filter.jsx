@@ -9,11 +9,10 @@ const Filter = ({ onFilterChange }) => {
     onFilterChange(filter);
   };
 
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const alphabet = 'ABCDEFHLMPRST';
 
   return (
     <div className={css.filterContainer}>
-      <h2>Фильтр по брендам:</h2>
       <button
         className={selectedFilter === 'ALL' ? css.selected : ''}
         onClick={() => handleFilterChange('ALL')}

@@ -1,17 +1,18 @@
 /* Filter.module.css */
 .filterContainer {
     border: 1px solid #ccc;
-    padding: 16px;
+    padding: 35px;
 }
 
-button {
-    margin-right: 8px;
-    margin-bottom: 8px;
-    padding: 8px;
+.filterContainer button.selected {
+    background-color: #f44242;
+    color: white;
+}
+.filterContainer button {
+    margin: 5px;
+    padding: 17px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 20%;
     cursor: pointer;
-}
-
-.selected {
-    background-color: #007bff;
-    color: #fff;
 }
