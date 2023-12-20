@@ -30,7 +30,7 @@ const SearchModal = ({ isSearchOpen, addToCart }) => {
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, []);
+  }, );
 
   return (
     <div className={css.searchmodal} ref={modalRef}>
