@@ -10,6 +10,7 @@ const SearchModal = ({ isSearchOpen, addToCart }) => {
 
   const handleClickSearch = () => {
     isSearchOpen();
+    
   };
 
   const addToCard = (item) => {

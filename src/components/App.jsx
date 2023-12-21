@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import ProductsList from './ProductList/ProductsList';
-import Brands from './pages/BrandPage';
+import BrandPage from './pages/BrandPage';
+import ProductsPage from './pages/ProductsPage'
 import product from './data/product.json';
 import FixMenu from './FixMenu/FixMenu';
 
@@ -30,7 +31,8 @@ const removeFromCart = (item) => {
           </>
         }
       />
-      <Route path="/brands" element={<Brands />} />
+      <Route path="/brands" element={<BrandPage />} />
+       <Route path="/brands/:brandName" element={<ProductsPage />} />  {/* Добавлен маршрут для динамического сегмента */}
     </Routes>
   );
 }

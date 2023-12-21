@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import css from './Cart.module.css';
+import OrderModal from '../../Order/OrderModal'; // Импортируйте ваш компонент OrderModal
 
 const Cart = ({ items, closeCart, removeFromCart }) => {
-   console.log("Adding to cart:", items);
   const [itemCounts, setItemCounts] = useState(items.map(() => 1));
+  const [isOrderModalOpen, setOrderModalOpen] = useState(false);
 
   const increaseCount = (index) => {
     const newCounts = [...itemCounts];
@@ -19,10 +20,20 @@ const Cart = ({ items, closeCart, removeFromCart }) => {
       setItemCounts(newCounts);
     }
   };
-  
 
   const getTotalCost = () => {
     return items.reduce((total, item, index) => total + item.price * itemCounts[index], 0);
+  };
+
+  const handleCheckout = () => {
+    // Открыть модальное окно с деталями заказа
+    setOrderModalOpen(true);
+  };
+
+  const handleOrderModalClose = () => {
+    // Закрыть модальное окно заказа
+    setOrderModalOpen(false);
+     closeCart();
   };
 
   return (
@@ -47,11 +58,19 @@ const Cart = ({ items, closeCart, removeFromCart }) => {
             ))}
             </ul>
              <p>Всього:  {getTotalCost()} Грн.</p>
-          <button className={css.checkoutbtn}>Оформить заказ</button>
+           <button className={css.checkoutbtn} onClick={handleCheckout}>Оформить заказ</button>
         </>
       )}
-     
+      {isOrderModalOpen && (
+        <OrderModal
+          items={items}
+          itemCounts={itemCounts}
+          totalCost={getTotalCost()}
+          onClose={handleOrderModalClose}
+        />
+      )}
     </div>
+   
   );
 };
 

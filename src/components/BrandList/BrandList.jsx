@@ -1,8 +1,9 @@
 import React from 'react';
-import Brands from "../BrandList/Brands"
-import  css from'./BrandList.module.css'
+import { Link } from 'react-router-dom';
+import Brands from "../BrandList/Brands";
+import css from './BrandList.module.css';
 
-const BrandList = ({ items, selectedFilter }) => {
+const BrandList = ({ items, selectedFilter, onBrandClick }) => {
   const filteredItems = selectedFilter === 'ALL'
     ? items
     : items.filter(item => item.title[0] === selectedFilter);
@@ -12,16 +13,18 @@ const BrandList = ({ items, selectedFilter }) => {
       <ul className={css.Brandlist}>
         {filteredItems && filteredItems.map((item) => (
           <li key={item.brand} className={css.Branditem}>
-            <Brands
-                    url={item.url}
-                    title={item.title}
-            />
+            {/* Используйте Link для перехода на страницу с товарами выбранного бренда */}
+            <Link to={`/brands/${item.title[0]}`} onClick={() => onBrandClick(item)}>
+              <Brands
+                url={item.url}
+                title={item.title}
+              />
+            </Link>
           </li>
         ))}
       </ul>
     </div>
   );
 };
-
 
 export default BrandList;

@@ -18,7 +18,6 @@ const Search = ({ items,  addToCart }) => {
   const handleAddToCart = (item) => {
     addToCart(item);
     closeModal();
-     console.log('Товар добавлен', item);
   };
 
   const filteredItems = items ? items.filter(item =>
