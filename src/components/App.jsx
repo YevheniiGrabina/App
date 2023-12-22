@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
@@ -32,8 +31,11 @@ export default function App() {
           </>
         }
       />
-      <Route path="/brands" element={<BrandPage />} />
-     <Route path="/brands/:brandName" element={<ProductsPage />} />
+      <Route
+        path="/brands"
+        element={<BrandPage cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />}
+      />
+      <Route path="/brands/:brandName" element={<ProductsPage cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />} />
     </Routes>
   );
 }

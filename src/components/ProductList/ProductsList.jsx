@@ -13,10 +13,10 @@ const ProductsList = ({ items, addToCart }) => {
     setSelectedItem(null);
   };
 
-  const handleAddToCart = (item) => {
-    addToCart(item);
-    closeModal();
-  };
+ const handleAddToCart = (item) => {
+  addToCart(item);
+   closeModal();
+};
 
   return (
     <div>
@@ -24,7 +24,6 @@ const ProductsList = ({ items, addToCart }) => {
         {items.map((item) => (
             <li key={item ? item.id : 'default'} className={css.productitem} onClick={() => openModal(item)}>
             {item && <Products
-              sku={item.sku}
               url={item.url}
               title={item.title}
               price={item.price}

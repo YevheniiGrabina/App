@@ -8,9 +8,10 @@ const SearchModal = ({ isSearchOpen, addToCart }) => {
 
   const modalRef = useRef(null);
 
-  const handleClickSearch = () => {
-    isSearchOpen();
-    
+    const handleClickSearch = () => {
+    setTimeout(() => {
+      isSearchOpen();
+    }, 100); // Задержка 100 миллисекунд
   };
 
   const addToCard = (item) => {

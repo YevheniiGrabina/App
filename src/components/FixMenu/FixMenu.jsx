@@ -15,6 +15,9 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
     console.log('Значение isCartOpen:', isCartOpen);
   };
 
+  // Проверка наличия корзины перед обращением к свойству length
+  const cartLength = cartItems ? cartItems.length : 0;
+
   return (
     <div className={css.altmenu}>
       <center>
@@ -31,7 +34,8 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
           <li>
             <button className={css.basket} onClick={openCart}>
               <img src={basket} alt="корзина" width={30} height={30} />
-              <span className={css.cartCounter}>{cartItems.length}</span>
+              {/* Используйте cartLength вместо cartItems.length */}
+              <span className={css.cartCounter}>{cartLength}</span>
             </button>
             {isCartOpen && (
               <Cart items={cartItems} closeCart={closeCart} removeFromCart={removeFromCart} />
