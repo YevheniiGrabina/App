@@ -17,7 +17,7 @@ const Filter = ({ onFilterChange }) => {
         className={selectedFilter === 'ALL' ? css.selected : ''}
         onClick={() => handleFilterChange('ALL')}
       >
-        ВСЕ
+        ВСІ
       </button>
       {alphabet.split('').map((letter) => (
         <button

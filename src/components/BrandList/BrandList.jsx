@@ -14,7 +14,7 @@ const BrandList = ({ items, selectedFilter, onBrandClick }) => {
         {filteredItems && filteredItems.map((item) => (
           <li key={item.brand} className={css.Branditem}>
             {/* Используйте Link для перехода на страницу с товарами выбранного бренда */}
-            <Link to={`/brands/${item.title[0]}`} onClick={() => onBrandClick(item)}>
+            <Link to={`/brands/${item.title}`} onClick={() => onBrandClick(item)}>
               <Brands
                 url={item.url}
                 title={item.title}

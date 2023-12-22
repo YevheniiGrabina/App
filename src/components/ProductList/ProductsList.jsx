@@ -17,19 +17,19 @@ const ProductsList = ({ items, addToCart }) => {
     addToCart(item);
     closeModal();
   };
-  
 
   return (
     <div>
       <ul className={css.productlist}>
         {items.map((item) => (
-            <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
-                   <Products
-                    url={item.url}
-                    title={item.title}
-                    price={item.price}
-                    quontity={item.quantity}
-                />
+            <li key={item ? item.id : 'default'} className={css.productitem} onClick={() => openModal(item)}>
+            {item && <Products
+              sku={item.sku}
+              url={item.url}
+              title={item.title}
+              price={item.price}
+              quontity={item.quantity}
+                />}
           </li>
         ))}
       </ul>
@@ -50,5 +50,6 @@ const ProductsList = ({ items, addToCart }) => {
     </div>
   );
 };
+
 
 export default ProductsList;

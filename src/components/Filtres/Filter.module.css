@@ -4,7 +4,7 @@
     padding: 35px;
 }
 
-.filterContainer button.selected {
+.button.selected {
     background-color: #f44242;
     color: white;
 }

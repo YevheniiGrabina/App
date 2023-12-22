@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import ProductsList from './ProductList/ProductsList';
 import BrandPage from './pages/BrandPage';
-import ProductsPage from './pages/ProductsPage'
+import ProductsPage from './pages/ProductsPage';
 import product from './data/product.json';
 import FixMenu from './FixMenu/FixMenu';
 
@@ -15,10 +15,11 @@ export default function App() {
     setCartItems((prevItems) => [...prevItems, item]);
   };
 
-const removeFromCart = (item) => {
-  setCartItems(prevCartItems => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
-  console.log('Cart after removing:', cartItems);
-};
+  const removeFromCart = (item) => {
+    setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
+    console.log('Cart after removing:', cartItems);
+  };
+
   return (
     <Routes>
       <Route
@@ -32,8 +33,7 @@ const removeFromCart = (item) => {
         }
       />
       <Route path="/brands" element={<BrandPage />} />
-       <Route path="/brands/:brandName" element={<ProductsPage />} />  {/* Добавлен маршрут для динамического сегмента */}
+     <Route path="/brands/:brandName" element={<ProductsPage />} />
     </Routes>
   );
 }
-
