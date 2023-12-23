@@ -14,7 +14,7 @@ const ProductsList = ({ items, addToCart }) => {
 
   const openModal = (item) => {
     setSelectedItem(item);
-    setSelectedVariant(item.variants ? item.variants[0] : null);
+    setSelectedVariant(item.variants ? item.variants : null);
     setVariantModalOpen(false); // Скрыть окно с вариантом при открытии основного окна
   };
 
@@ -67,14 +67,13 @@ const ProductsList = ({ items, addToCart }) => {
       {selectedItem && (
         <div className={css.modal}>
           <div className={css.modalcontent}>
-            <img src={selectedItem.url} alt={selectedItem.title} />
-            <p>{selectedItem.title}</p>
-            <p>{selectedItem.description}</p>
-            <p>{selectedItem.price}</p>
-            <p>{selectedItem.quantity}</p>
-             <button onClick={closeModal}>Закрыть</button>
-            <button onClick={handleAddToCart}>Добавить в корзину</button>
-            <Accordion>
+              <button className={css.closemodalbtn} onClick={closeModal}>Х</button>
+            <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
+            <p className={css.modaltitle}>{selectedItem.title}</p>
+            <p className={css.modaldesc}>{selectedItem.description}</p>
+            <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
+            <button className={css.modalbtn} onClick={handleAddToCart}>Добавить в корзину</button>
+            <Accordion className={css.Accordion}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography>Аромати</Typography>
               </AccordionSummary>
@@ -105,7 +104,7 @@ const ProductsList = ({ items, addToCart }) => {
             <p>{selectedVariant.title}</p>
             <p>{selectedVariant.description}</p>
             <button onClick={handleAddVariantToCart}>Добавить в корзину</button>
-            <button onClick={closeVariantModal}>Закрыть</button>
+            <button onClick={closeVariantModal}>Х</button>
           </div>
         </div>
       )}

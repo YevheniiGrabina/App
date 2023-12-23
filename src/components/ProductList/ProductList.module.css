@@ -31,13 +31,110 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .modalcontent {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 600px;
+        background: white;
+        height: 420px;
+        width: 654px;
+        margin: 50px auto;
+        border-radius: 7px 7px 7px 7px;
+        /* VIA CSS MATIC https://goo.gl/cIbnS */
+        -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    }
+
+.Accordion{
+    position: fixed;
+    width: 100px;
+    position: relative;
+    margin-left: 300px;
+    color: #9cebd5;
     
+    
+}
+.modalimg {
+    float: left;
+    height: 420px;
+    width: 327px;
+}
+
+.modaltitle {
+    margin: 0 0 0 38px;
+    padding-top: 52px;
+    font-size: 34px;
+    color: #474747;
+}
+.modaldesc{
+    height: 125px;
+        margin: 0 0 0 38px;
+        font-family: 'Playfair Display', serif;
+        color: #8d8d8d;
+        line-height: 1.7em;
+        font-size: 15px;
+        font-weight: lighter;
+        overflow: hidden;
+}
+.modalprice {
+    display: inline-block;
+        top: -13px;
+        height: 50px;
+        font-family: 'Trocchi', serif;
+        margin: 0 0 0 3px;
+        font-size: 28px;
+        font-weight: lighter;
+        color: #474747;
+}
+
+.modalquantity {
+    font-size: 100%;
+    line-height: 100%;
+    font-weight: normal;
+    color: #000;
+    display: block;
+    margin-left: 5px;
+}
+
+.productbrand {
+    display: none;
+}
+.modalbtn{
+            float: right;
+            display: inline-block;
+            height: 50px;
+            width: 176px;
+            margin: 0 40px 0 16px;
+            box-sizing: border-box;
+            border: transparent;
+            border-radius: 60px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #ffffff;
+            background-color: #9cebd5;
+            cursor: pointer;
+            outline: none;
+}
+.closemodalbtn{
+    position: relative;
+        height: 30px;
+        width: 30px;
+        margin-left: 295px;
+        box-sizing: border-box;
+        border: transparent;
+        border-radius: 60px;
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #ffffff;
+        background-color: #9cebd5;
+        cursor: pointer;
+        outline: none;
 }
 
