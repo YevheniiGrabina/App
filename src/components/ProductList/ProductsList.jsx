@@ -4,8 +4,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Products from "../Products/Products"
-import  css from'./ProductList.module.css'
+import Products from "../Products/Products";
+import css from './ProductList.module.css';
 
 const ProductsList = ({ items, addToCart }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -67,7 +67,7 @@ const ProductsList = ({ items, addToCart }) => {
       {selectedItem && (
         <div className={css.modal}>
           <div className={css.modalcontent}>
-              <button className={css.closemodalbtn} onClick={closeModal}>Х</button>
+            <button className={css.closemodalbtn} onClick={closeModal}>Х</button>
             <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
             <p className={css.modaltitle}>{selectedItem.title}</p>
             <p className={css.modaldesc}>{selectedItem.description}</p>

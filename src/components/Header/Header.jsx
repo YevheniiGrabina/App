@@ -19,6 +19,10 @@ class Header extends Component {
     };
   }
 
+  
+ handleBrandsClick = () => {
+    // Ваш код здесь
+  };
   openMobileMenu = () => {
     this.setState({ isMobileMenuOpen: true });
   };
@@ -67,7 +71,33 @@ class Header extends Component {
         <div className={css.logo}>
           <img className={css.logoimg} src={logo} alt="логотип" />
         </div>
-
+        <div className={css.navsection}>
+          <ul className={css.navlist}>
+     <li className={css.navlink}>
+         <a className={css.navlistlink}  href="/">Головна</a>
+     </li>
+     <li className={css.navlistitem}>
+      <span className={css.navlistlink}  href="/">
+        <select name="user_city" className={css.select}>
+            <option   value="1">Магазин</option>
+            <option className={css.option} value="2">Бренди</option>
+            
+        </select>
+              </span>
+              
+            </li>
+              <li className={css.navlink}>
+         <a className={css.navlistlink}  href="/">Про нас</a>
+     </li>
+      <li className={css.navlistitem}>
+         <a className={css.navlistlink} href="/">Контакти</a>
+      </li>
+          <li className={css.navlistitem}>
+         <a className={css.navlistlink} href="/">Доставка і оплата</a>
+            </li>
+            
+          </ul>
+          </div>
         <div className={css.navright}>
           <button className={css.mobilesearch} href="#" onClick={this.openSearch}>
             <img
@@ -75,7 +105,7 @@ class Header extends Component {
               alt="search"
             />
           </button>
-
+          
           {this.state.isSearchOpen && (
             <SearchModal isSearchOpen={this.closeSearch} addToCart={this.addToCart} />
           )}
