@@ -5,19 +5,17 @@ import css from './ProductList.module.css';
 const ProductsList = ({ items, addToCart }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState(null);
-  const [variantModalOpen, setVariantModalOpen] = useState(false);
   const [selectedVariantModalOpen, setSelectedVariantModalOpen] = useState(false);
 
   const openModal = (item) => {
     setSelectedItem(item);
     setSelectedVariant(item.variants ? item.variants[0] : null);
-    setVariantModalOpen(false);
+    setSelectedVariantModalOpen(false);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
     setSelectedVariant(null);
-    setVariantModalOpen(false);
     setSelectedVariantModalOpen(false); // Закрывает модальное окно для варианта
   };
 
@@ -38,11 +36,6 @@ const ProductsList = ({ items, addToCart }) => {
       });
       closeModal();
     }
-  };
-
-  const openVariantModal = (variant) => {
-    setSelectedVariant(variant);
-    setSelectedVariantModalOpen(true);
   };
 
   return (
@@ -75,25 +68,25 @@ const ProductsList = ({ items, addToCart }) => {
             <button className={css.modalbtn} onClick={handleAddToCart}>
               Добавить в корзину
             </button>
-          {selectedItem.variants && (
-  <div className={css.customDropdown}>
-    <select
-      value={selectedVariant ? selectedVariant.id : ''}
-      onChange={(event) => {
-        const selectedVariantId = event.target.value;
-        const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
-        setSelectedVariant(variant);
-        openModal(variant); // Открывает модальное окно для выбранного варианта
-      }}
-    >
-      {selectedItem.variants.map((variant) => (
-        <option key={variant.id} value={variant.id}>
-          {variant.title}
-        </option>
-      ))}
-    </select>
-  </div>
-)}
+            {selectedItem.variants && (
+              <div className={css.customDropdown}>
+                <select
+                  value={selectedVariant ? selectedVariant.id : ''}
+                  onChange={(event) => {
+                    const selectedVariantId = event.target.value;
+                    const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
+                    setSelectedVariant(variant);
+                    setSelectedVariantModalOpen(true); // Автоматически открывает модальное окно для выбранного варианта
+                  }}
+                >
+                  {selectedItem.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
         </div>
       )}
