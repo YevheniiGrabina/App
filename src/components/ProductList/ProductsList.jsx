@@ -11,14 +11,14 @@ const ProductsList = ({ items, addToCart }) => {
   const openModal = (item) => {
     setSelectedItem(item);
     setSelectedVariant(item.variants ? item.variants[0] : null);
-    setVariantModalOpen(true);
+    setVariantModalOpen(false);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
     setSelectedVariant(null);
     setVariantModalOpen(false);
-    setSelectedVariantModalOpen(false);
+    setSelectedVariantModalOpen(false); // Закрывает модальное окно для варианта
   };
 
   const handleAddToCart = () => {
@@ -72,29 +72,28 @@ const ProductsList = ({ items, addToCart }) => {
             <p className={css.modaltitle}>{selectedItem.title}</p>
             <p className={css.modaldesc}>{selectedItem.description}</p>
             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-             {selectedItem.variants && (
-              <div className={css.customDropdown}>
-                <select className={css.selectmodal}
-                  value={selectedVariant ? selectedVariant.id : ''}
-                  onChange={(event) => {
-                    const selectedVariantId = event.target.value;
-                    const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
-                     setSelectedVariant(variant);
-              setSelectedVariantModalOpen(true);
-                  }}
-                >
-                  {selectedItem.variants.map((variant) => (
-                    <option key={variant.id} value={variant.id}>
-                      {variant.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
             <button className={css.modalbtn} onClick={handleAddToCart}>
               Добавить в корзину
             </button>
-           
+          {selectedItem.variants && (
+  <div className={css.customDropdown}>
+    <select
+      value={selectedVariant ? selectedVariant.id : ''}
+      onChange={(event) => {
+        const selectedVariantId = event.target.value;
+        const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
+        setSelectedVariant(variant);
+        openModal(variant); // Открывает модальное окно для выбранного варианта
+      }}
+    >
+      {selectedItem.variants.map((variant) => (
+        <option key={variant.id} value={variant.id}>
+          {variant.title}
+        </option>
+      ))}
+    </select>
+  </div>
+)}
           </div>
         </div>
       )}
@@ -102,12 +101,10 @@ const ProductsList = ({ items, addToCart }) => {
       {selectedVariant && selectedVariantModalOpen && (
         <div className={css.modal}>
           <div className={css.modalcontent}>
-            <button className={css.closemodalbtn} onClick={closeModal}>
-              Х
-            </button>
+            {/* Добавлен выпадающий список внутри модального окна варианта */}
             {selectedItem.variants && (
               <div className={css.customDropdown}>
-                <select className={css.select}
+                <select
                   value={selectedVariant ? selectedVariant.id : ''}
                   onChange={(event) => {
                     const selectedVariantId = event.target.value;
@@ -123,13 +120,13 @@ const ProductsList = ({ items, addToCart }) => {
                 </select>
               </div>
             )}
+
             <img className={css.modalimg} src={selectedVariant.url} alt={selectedVariant.title} />
             <p className={css.modaltitle}>{selectedVariant.title}</p>
             <p className={css.modaldesc}>{selectedVariant.description}</p>
-            <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-            <button className={css.modalbtn} onClick={handleAddVariantToCart}>
-              Добавить в корзину
-            </button>
+              <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
+            <button onClick={handleAddVariantToCart}>Добавить в корзину</button>
+            <button onClick={closeModal}>Х</button>
           </div>
         </div>
       )}
