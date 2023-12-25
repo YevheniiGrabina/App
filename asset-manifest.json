@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/App/static/css/main.aa01ad35.css",
-    "main.js": "/App/static/js/main.084f7165.js",
+    "main.css": "/App/static/css/main.ec998b69.css",
+    "main.js": "/App/static/js/main.0155582e.js",
     "static/media/1627003882_11-p-fon-dlya-saita-rozovii-11.png": "/App/static/media/1627003882_11-p-fon-dlya-saita-rozovii-11.d0c69ee14ad1ed1d4521.png",
     "index.html": "/App/index.html",
-    "main.aa01ad35.css.map": "/App/static/css/main.aa01ad35.css.map",
-    "main.084f7165.js.map": "/App/static/js/main.084f7165.js.map"
+    "main.ec998b69.css.map": "/App/static/css/main.ec998b69.css.map",
+    "main.0155582e.js.map": "/App/static/js/main.0155582e.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa01ad35.css",
-    "static/js/main.084f7165.js"
+    "static/css/main.ec998b69.css",
+    "static/js/main.0155582e.js"
   ]
 }
