@@ -1,12 +1,11 @@
 .productlist {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     justify-content: space-between;
     grid-row-gap: 2px;
     grid-column-gap:3px;
     margin-top: 140px;
     margin-bottom: 80px;
-
 }
 
 .productitem {
@@ -17,14 +16,16 @@
     width: auto;
     margin-bottom: 15px;
 }
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    max-height: 800px;    
-    overflow-y: auto;
-    
+/* Модальне вікно */
+.modal{
+    @media screen and (min-width: 320px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            max-width: 100%;
+            max-height: 800px;
+            overflow-y: auto;
+    }
     @media screen and (min-width: 900px) {
                 position: fixed;
                 top: 0;
@@ -40,59 +41,44 @@
 }
 
 .modalcontent {
-        @media screen and (min-width: 390px) {
-                    margin-top: 100px;
+        @media screen and (min-width: 320px) {
                     background: white;
                     overflow: auto;
                     height: 1000px;
-                    width: 90%;
                     border-radius: 7px 7px 7px 7px;
-                    /* VIA CSS MATIC https://goo.gl/cIbnS */
                     -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
                     -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
                     box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
             }
         @media screen and (min-width: 768px) {
-                    margin-top: 100px;
                     background: white;
                     height: 500px;
                     width: auto;
                     margin: 50px auto;
                     border-radius: 7px 7px 7px 7px;
-                    /* VIA CSS MATIC https://goo.gl/cIbnS */
                     -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
                     -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
                     box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
             }
     }
-
-.Accordion{
-    position: fixed;
-    width: 100px;
-    position: relative;
-    margin-left: 300px;
-    color: #9cebd5;
-    
-    
-}
 .modalimg {
-    @media screen and ( min-width: 390px){
+    @media screen and ( min-width: 320px){
         height: auto;
         margin: 0 auto;
-       
+
     }
     @media screen and (min-width: 900px) {
                 float: left;
                 height: 420px;
-                width: 327px;
+                margin-top: 0;
         }
 }
 
 .modaltitle {
-    @media screen and (min-width: 390px) {
+    @media screen and (min-width: 320px) {
         text-align: center;
         padding-top: 52px;
-        font-size: 26px;
+        font-size: 22px;
         color: #474747;}
     
     @media screen and (min-width: 768px) {
@@ -101,6 +87,7 @@
 
 }
 .modaldesc{
+    @media screen and (min-width:320px) {
         text-align: center;
         height: 125px;
         font-family: 'Playfair Display', serif;
@@ -108,7 +95,10 @@
         line-height: 1.7em;
         font-size: 16px;
         font-weight: lighter;
-        overflow: hidden;
+    }
+    @media screen and (min-width:900px) {
+        margin-top: 50px;
+    }
 }
 .modalprice {
         text-align: center;
@@ -133,11 +123,10 @@
     display: none;
 }
 .modalbtn{
-            
+            margin: 0 auto;
+            display: block;
             height: 50px;
             width: 176px;
-            margin-top: 70px;
-            box-sizing: border-box;
             border: transparent;
             border-radius: 60px;
             font-family: 'Raleway', sans-serif;
@@ -146,31 +135,74 @@
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: #ffffff;
-            background-color: #9cebd5;
+            background-color: crimson;
             cursor: pointer;
-            outline: none;
-            @media screen and (min-width: 768px) {
-                    
+            @media screen and (min-width: 900px) {
+                
                 }
 }
 .closemodalbtn{
-        position: relative;
+        float: right;
         height: 30px;
         width: 30px;
-        margin-left: 395px;
-        box-sizing: border-box;
         border: transparent;
         border-radius: 60px;
-        font-family: 'Raleway', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
         color: #ffffff;
-        background-color: #9cebd5;
+        background-color: crimson;
         cursor: pointer;
-        outline: none;
         @media screen and (min-width: 768px) {
                 
             }
+}
+
+
+.dropdownButton {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdownButton:hover,
+.dropdownButton:focus {
+    background-color: #2980B9;
+}
+
+.dropdownList {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.dropdownList a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdownList a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+.select{
+    position: absolute;
+    margin-top: 700px;
+    margin-left: 165px;
+    margin-bottom: 40px;
+
+}
+.selectmodal{
+    margin-left:165px;
+    margin-bottom: 40px;
+    
 }

@@ -22,6 +22,9 @@
     bottom: 0px;
     left: 0px;
     border-top: 1px solid #aba;
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
 }
 
 .altmenu ul {

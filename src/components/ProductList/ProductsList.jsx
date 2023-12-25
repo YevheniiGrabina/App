@@ -1,27 +1,24 @@
 import React, { useState } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Products from "../Products/Products";
+import Products from '../Products/Products';
 import css from './ProductList.module.css';
 
 const ProductsList = ({ items, addToCart }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [variantModalOpen, setVariantModalOpen] = useState(false);
+  const [selectedVariantModalOpen, setSelectedVariantModalOpen] = useState(false);
 
   const openModal = (item) => {
     setSelectedItem(item);
-    setSelectedVariant(item.variants ? item.variants : null);
-    setVariantModalOpen(false); // Скрыть окно с вариантом при открытии основного окна
+    setSelectedVariant(item.variants ? item.variants[0] : null);
+    setVariantModalOpen(true);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
     setSelectedVariant(null);
     setVariantModalOpen(false);
+    setSelectedVariantModalOpen(false);
   };
 
   const handleAddToCart = () => {
@@ -43,8 +40,9 @@ const ProductsList = ({ items, addToCart }) => {
     }
   };
 
-  const closeVariantModal = () => {
-    setVariantModalOpen(true);
+  const openVariantModal = (variant) => {
+    setSelectedVariant(variant);
+    setSelectedVariantModalOpen(true);
   };
 
   return (
@@ -67,44 +65,71 @@ const ProductsList = ({ items, addToCart }) => {
       {selectedItem && (
         <div className={css.modal}>
           <div className={css.modalcontent}>
-            <button className={css.closemodalbtn} onClick={closeModal}>Х</button>
+            <button className={css.closemodalbtn} onClick={closeModal}>
+              Х
+            </button>
             <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
             <p className={css.modaltitle}>{selectedItem.title}</p>
             <p className={css.modaldesc}>{selectedItem.description}</p>
             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-            <button className={css.modalbtn} onClick={handleAddToCart}>Добавить в корзину</button>
-            <Accordion className={css.Accordion}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>Аромати</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  {selectedItem.variants && (
-                    <span>
-                      {selectedItem.variants.map((variant) => (
-                        <span key={variant.id}>
-                          <button onClick={() => openModal(variant)}>
-                            <p>{variant.title}</p>
-                          </button>
-                        </span>
-                      ))}
-                    </span>
-                  )}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+             {selectedItem.variants && (
+              <div className={css.customDropdown}>
+                <select className={css.selectmodal}
+                  value={selectedVariant ? selectedVariant.id : ''}
+                  onChange={(event) => {
+                    const selectedVariantId = event.target.value;
+                    const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
+                     setSelectedVariant(variant);
+              setSelectedVariantModalOpen(true);
+                  }}
+                >
+                  {selectedItem.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+            <button className={css.modalbtn} onClick={handleAddToCart}>
+              Добавить в корзину
+            </button>
+           
           </div>
         </div>
       )}
 
-      {selectedVariant && variantModalOpen && (
-        <div className={css.variantModal}>
+      {selectedVariant && selectedVariantModalOpen && (
+        <div className={css.modal}>
           <div className={css.modalcontent}>
-            <img src={selectedVariant.url} alt={selectedVariant.title} />
-            <p>{selectedVariant.title}</p>
-            <p>{selectedVariant.description}</p>
-            <button onClick={handleAddVariantToCart}>Добавить в корзину</button>
-            <button onClick={closeVariantModal}>Х</button>
+            <button className={css.closemodalbtn} onClick={closeModal}>
+              Х
+            </button>
+            {selectedItem.variants && (
+              <div className={css.customDropdown}>
+                <select className={css.select}
+                  value={selectedVariant ? selectedVariant.id : ''}
+                  onChange={(event) => {
+                    const selectedVariantId = event.target.value;
+                    const variant = selectedItem.variants.find((v) => v.id === selectedVariantId);
+                    setSelectedVariant(variant);
+                  }}
+                >
+                  {selectedItem.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+            <img className={css.modalimg} src={selectedVariant.url} alt={selectedVariant.title} />
+            <p className={css.modaltitle}>{selectedVariant.title}</p>
+            <p className={css.modaldesc}>{selectedVariant.description}</p>
+            <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
+            <button className={css.modalbtn} onClick={handleAddVariantToCart}>
+              Добавить в корзину
+            </button>
           </div>
         </div>
       )}
