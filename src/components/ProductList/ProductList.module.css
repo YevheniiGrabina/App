@@ -1,6 +1,6 @@
 .productlist {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: space-between;
     grid-row-gap: 2px;
     grid-column-gap:3px;
@@ -20,8 +20,10 @@
 
 .modal {
     position: fixed;
-        top: 0;
-        left: 0;
+    top: 0;
+    left: 0;
+    max-height: 800px;    
+    overflow-y: auto;
     
     @media screen and (min-width: 900px) {
                 position: fixed;
@@ -38,18 +40,18 @@
 }
 
 .modalcontent {
-        margin-top: 100px;
-        background: white;
-        overflow: auto;
-        height: 1000px;
-        width: 100%;
-        border-radius: 7px 7px 7px 7px;
-        /* VIA CSS MATIC https://goo.gl/cIbnS */
-        -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-
-
+        @media screen and (min-width: 390px) {
+                    margin-top: 100px;
+                    background: white;
+                    overflow: auto;
+                    height: 1000px;
+                    width: 90%;
+                    border-radius: 7px 7px 7px 7px;
+                    /* VIA CSS MATIC https://goo.gl/cIbnS */
+                    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+                    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+                    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+            }
         @media screen and (min-width: 768px) {
                     margin-top: 100px;
                     background: white;
@@ -74,8 +76,11 @@
     
 }
 .modalimg {
-    height: 300px;
-    margin: auto;
+    @media screen and ( min-width: 390px){
+        height: auto;
+        margin: 0 auto;
+       
+    }
     @media screen and (min-width: 900px) {
                 float: left;
                 height: 420px;
@@ -84,10 +89,12 @@
 }
 
 .modaltitle {
-    text-align: center;
-    padding-top: 52px;
-    font-size: 34px;
-    color: #474747;
+    @media screen and (min-width: 390px) {
+        text-align: center;
+        padding-top: 52px;
+        font-size: 26px;
+        color: #474747;}
+    
     @media screen and (min-width: 768px) {
            
         }
