@@ -10,10 +10,7 @@
 }
 
 .productitem {
-    
-    border: 1px solid;
     border-radius: 10px;
-    border-color: rgb(229, 136, 136);
     margin: 8px;
     margin: 8px;
     height: auto;
@@ -41,6 +38,7 @@
 }
 
 .modalcontent {
+        margin-top: 100px;
         background: white;
         overflow: auto;
         height: 1000px;
@@ -52,10 +50,11 @@
         box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
 
 
-        @media screen and (min-width: 900px) {
-                background: white;
+        @media screen and (min-width: 768px) {
+                    margin-top: 100px;
+                    background: white;
                     height: 500px;
-                    width: 900px;
+                    width: auto;
                     margin: 50px auto;
                     border-radius: 7px 7px 7px 7px;
                     /* VIA CSS MATIC https://goo.gl/cIbnS */
@@ -75,38 +74,40 @@
     
 }
 .modalimg {
-    
-    height: auto;
-    width: auto;
+    height: 300px;
+    margin: auto;
     @media screen and (min-width: 900px) {
-            float: left;
+                float: left;
                 height: 420px;
                 width: 327px;
         }
 }
 
 .modaltitle {
-    margin: 0 0 0 38px;
+    text-align: center;
     padding-top: 52px;
     font-size: 34px;
     color: #474747;
+    @media screen and (min-width: 768px) {
+           
+        }
+
 }
 .modaldesc{
-    height: 125px;
-        margin: 0 0 0 38px;
+        text-align: center;
+        height: 125px;
         font-family: 'Playfair Display', serif;
-        color: #8d8d8d;
+        color: #000000;
         line-height: 1.7em;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: lighter;
         overflow: hidden;
 }
 .modalprice {
-    display: inline-block;
-        top: -13px;
+        text-align: center;
+        margin-top: 50px;
         height: 50px;
         font-family: 'Trocchi', serif;
-        margin: 0 0 0 3px;
         font-size: 28px;
         font-weight: lighter;
         color: #474747;
@@ -125,11 +126,10 @@
     display: none;
 }
 .modalbtn{
-            float: right;
-            display: inline-block;
+            
             height: 50px;
             width: 176px;
-            margin: 0 40px 0 16px;
+            margin-top: 70px;
             box-sizing: border-box;
             border: transparent;
             border-radius: 60px;
@@ -142,12 +142,15 @@
             background-color: #9cebd5;
             cursor: pointer;
             outline: none;
+            @media screen and (min-width: 768px) {
+                    
+                }
 }
 .closemodalbtn{
-    position: relative;
+        position: relative;
         height: 30px;
         width: 30px;
-        margin-left: 295px;
+        margin-left: 395px;
         box-sizing: border-box;
         border: transparent;
         border-radius: 60px;
@@ -160,5 +163,7 @@
         background-color: #9cebd5;
         cursor: pointer;
         outline: none;
+        @media screen and (min-width: 768px) {
+                
+            }
 }
-
