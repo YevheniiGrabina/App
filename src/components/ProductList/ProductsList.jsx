@@ -65,12 +65,9 @@ const ProductsList = ({ items, addToCart }) => {
               <button className={css.closemodalbtn} onClick={closeModal}>Х</button>
             <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
             <p className={css.modaltitle}>{selectedItem.title}</p>
-            <p className={css.modaldesc}>{selectedItem.description}</p>
             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-            <p className={css.modalquantity}>{selectedItem.quantity}</p>
-           
-            <button className={css.modalbtn} onClick={handleAddToCart}>Добавить в корзину</button>
-           
+            <p className={css.modaldesc}>{selectedItem.description}</p>
+            <button className={css.modalbtn} onClick={handleAddToCart}>ДОДАТИ В КОШИК</button>
           </div>
         </div>
       )}
