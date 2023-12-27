@@ -35,11 +35,14 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
   return (
     <div>
       <Header cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
+      <button className={css.closePageBtn} type="button" onClick={closePage}>
+       Назад
+      </button>
       <h2>{`Products for ${brandName}`}</h2>
       {filteredProducts.length > 0 ? (
         <ul className={css.productlist}>
           {filteredProducts.map((item) => (
-            <li key={item.id}  onClick={() => openModal(item)}>
+            <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
               <Products
                 url={item.url}
                 title={item.title}
@@ -56,20 +59,16 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
       {selectedItem && (
         <div className={css.modal}>
           <div className={css.modalcontent}>
-            <img src={selectedItem.url} alt={selectedItem.title} />
-            <p>{selectedItem.title}</p>
-            <p>{selectedItem.description}</p>
-            <p>{selectedItem.price}</p>
-            <p>{selectedItem.quantity}</p>
-            <button onClick={() => handleAddToCart(selectedItem)}>Добавить в корзину</button>
-            <button onClick={closeModal}>Закрыть</button>
+            <button className={css.closemodalbtn} onClick={closeModal}>X</button>
+            <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
+            <p className={css.modaltitle}>{selectedItem.title}</p>
+             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
+            <p className={css.modaldesc}>{selectedItem.description}</p>
+            <button  className={css.modalbtn} onClick={() => handleAddToCart(selectedItem)}>Добавить в корзину</button>
+            
           </div>
         </div>
       )}
-
-      <button className={css.closePageBtn} type="button" onClick={closePage}>
-        До брендів
-      </button>
        <FixMenu cartItems={cartItems} removeFromCart={removeFromCart} />
     </div>
   );
