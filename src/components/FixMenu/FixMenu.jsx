@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Cart from '../Header/Cart/Cart';
 import basket from 'images/basket.png';
+import category from 'images/category.png'
 import hearth from 'images/hearth.png'
+import house from 'images/house.png'
 import css from './FixMenu.module.css';
 
 const FixMenu = ({ cartItems, removeFromCart }) => {
@@ -23,11 +26,15 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
     <div className={css.altmenu}>
       <center>
         <ul>
-          <li>
-            <span className={css.altmenuItem}></span>
-          </li>
-          <li>
-            <span className={css.altmenuItem}></span>
+          <Link  to="/App">
+         <button className={css.house}>
+              <img src={house} alt="category" width={35} height={30} />
+            </button>
+            </Link>
+           <li>
+             <button className={css.category}>
+              <img src={category} alt="category" width={35} height={30} />
+        </button>
           </li>
           <li>
             <button className={css.basket} onClick={openCart}>

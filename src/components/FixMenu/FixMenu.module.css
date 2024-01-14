@@ -1,18 +1,3 @@
-.skatzz {
-    font-family: Arial;
-    font-size: 30px;
-    text-align: center;
-    margin-top: 30px;
-    text-shadow: 1px 1px 1px;
-}
-
-.skatzz span {
-    color: orangered;
-}
-
-.skatzz font {
-    color: teal;
-}
 
 .altmenu {
     width: 100%;
@@ -30,12 +15,13 @@
 .altmenu ul {
     padding: 0;
     margin: 0;
+    justify-content: space-between;
 }
 
 .altmenu ul li {
     display: inline-block;
-    width: 25.04%;
-    margin-left: -4px;
+    
+   margin-left: 90px;
 }
 
 .altmenu ul li a {
@@ -242,3 +228,13 @@
     margin-top: 3px;
 
 }
+.category{
+    background: transparent;
+        border: none;
+        margin-top: 3px;
+}
+.house{
+    background: transparent;
+        border: none;
+        margin-top: 3px;
+    }

@@ -57,9 +57,9 @@ const Cart = ({ items, closeCart, removeFromCart }) => {
                   </div>
                 <div className={css.countercontainer}>
                   <div className={css.countgrid}>
-                    <button className={css.countmin} onClick={() => decreaseCount(index)}><img src={minus} alt='minus' width={80} height={80}/></button>
+                    <button className={css.countmin} onClick={() => decreaseCount(index)}><img src={minus} alt='minus'/></button>
                      <p className={css.cartitemcount}> {itemCounts[index]}</p>
-                    <button className={css.countplus} onClick={() => increaseCount(index)}><img src={plus} alt='plus' width={80} height={80}/></button>
+                    <button className={css.countplus} onClick={() => increaseCount(index)}><img src={plus} alt='plus' /></button>
                   </div>
                   <div className={css.cost}>
                   <p className={css.cartprice}> {item.price}₴</p>
