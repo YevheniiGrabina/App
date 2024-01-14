@@ -22,9 +22,9 @@ const Product = ({
       <p className={css.productTitle}>{title}</p>
       <p className={css.productdesc}>{description}</p>
       
-      <p className={css.productquan}>
+      {/* <p className={css.productquan}>
         {quantity < 10 ? 'заканчивается' : 'есть в наличии'}
-      </p>
+      </p> */}
 
       {variants && variants.length > 0 && (
         <div className={css.variants}>

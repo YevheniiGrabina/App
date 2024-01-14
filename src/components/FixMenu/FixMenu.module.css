@@ -34,8 +34,8 @@
 
 .altmenu ul li {
     display: inline-block;
-    /* width: 20.04%;
-    margin-left: -4px; */
+    width: 25.04%;
+    margin-left: -4px;
 }
 
 .altmenu ul li a {
@@ -234,4 +234,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.hearth {
+    background: transparent;
+    border: none;
+    margin-top: 3px;
+
 }

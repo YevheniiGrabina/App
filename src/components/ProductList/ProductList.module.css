@@ -18,6 +18,13 @@
     width: auto;
     margin-bottom: 15px;
 }
+
+.hearth{
+    background: transparent;
+    border: none;
+    float: right;margin-top: 3px;
+
+}
 /* Модальне вікно */
 .modal{
             position: fixed;
@@ -65,8 +72,8 @@
             }
     }
 .modalimg {
-        height: auto;
-        width: 400px;
+        height: 200px;
+        width: 200px;
         margin: 0 auto;
     @media screen and (min-width: 768px) {
                
@@ -78,7 +85,7 @@
 
 .modaltitle {
         padding-right: 68px;
-        font-size: 180%;
+        font-size: 130%;
         line-height: 1.4;
         padding-top: 52px;
         color: #474747;
@@ -90,11 +97,10 @@
 
 }
 .modaldesc{
-        height: 125px;
         font-family: 'Playfair Display', serif;
         color: #000000;
         line-height: 1.7em;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: lighter;
     @media screen and (min-width:900px) {
         margin-top: 50px;
@@ -104,7 +110,7 @@
         margin-top: 30px;
         height: 50px;
         font-family: 'Trocchi', serif;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: lighter;
         color: #474747;
 }
@@ -122,8 +128,8 @@
     display: none;
 }
 .modalbtn{
-            align-items: center;
-            margin-top: 100px;
+            margin-left: 25%;
+            margin-top: 10px;
             height: 50px;
             width: 176px;
             border: transparent;

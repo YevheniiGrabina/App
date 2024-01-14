@@ -102,8 +102,9 @@ class Header extends Component {
         <div className={css.navright}>
           <button className={css.mobilesearch} href="#" onClick={this.openSearch}>
             <img
-              src= {search}
+              src= {search} 
               alt="search"
+              width={30} height={30}
             />
           </button>
           

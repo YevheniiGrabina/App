@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Products from '../Products/Products';
+import hearth from '..//../images/hearth.png'
+
 import css from './ProductList.module.css';
 
 const ProductsList = ({ items, addToCart }) => {
@@ -38,12 +40,15 @@ const ProductsList = ({ items, addToCart }) => {
       <ul className={css.productlist}>
         {shuffledItems.map((item) => (
           <li key={item ? item.id : 'default'} className={css.productitem} onClick={() => openModal(item)}>
+              <button className={css.hearth}>
+              <img src={hearth} alt="корзина" width={25} height={25} />
+        </button>
             {item && (
               <Products
                 url={item.url}
                 price={item.price}
                 title={item.title}
-                quantity={item.quantity}
+                // quantity={item.quantity}
               />
             )}
           </li>
@@ -60,10 +65,11 @@ const ProductsList = ({ items, addToCart }) => {
             <p className={css.modaltitle}>{selectedItem.title}</p>
             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
             <p className={css.modaldesc}>{selectedItem.description}</p>
-            <button className={css.modalbtn} onClick={handleAddToCart}>
-              Добавить в корзину
+              <button className={css.modalbtn} onClick={handleAddToCart}>
+              У кошик
             </button>
           </div>
+          
         </div>
       )}
     </div>
