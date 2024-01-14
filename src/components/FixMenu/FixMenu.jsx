@@ -31,12 +31,12 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
               <img src={house} alt="category" width={35} height={30} />
             </button>
             </Link>
-           <li>
+           
              <button className={css.category}>
               <img src={category} alt="category" width={35} height={30} />
         </button>
-          </li>
-          <li>
+         
+          
             <button className={css.basket} onClick={openCart}>
               <img src={basket} alt="корзина" width={30} height={30} />
               {/* Используйте cartLength вместо cartItems.length */}
@@ -45,12 +45,11 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
             {isCartOpen && (
               <Cart items={cartItems} closeCart={closeCart} removeFromCart={removeFromCart} />
             )}
-          </li>
-            <li>
+         
+           
              <button className={css.hearth}>
               <img src={hearth} alt="корзина" width={35} height={30} />
         </button>
-          </li>
         </ul>
       </center>
     </div>

@@ -13,17 +13,10 @@
 }
 
 .altmenu ul {
-    padding: 0;
-    margin: 0;
-    justify-content: space-between;
+display: flex;
+justify-content: space-between;
+   
 }
-
-.altmenu ul li {
-    display: inline-block;
-    
-   margin-left: 90px;
-}
-
 .altmenu ul li a {
     position: relative;
     display: block;
