@@ -18,9 +18,10 @@ const Product = ({
   return (
     <div className={css.product}>
       <img className={css.productimg} src={url} alt={title} width='100px' />
+      <p className={css.productprice}>{price} ₴</p>
       <p className={css.productTitle}>{title}</p>
       <p className={css.productdesc}>{description}</p>
-      <p className={css.productprice}>{price} ₴</p>
+      
       <p className={css.productquan}>
         {quantity < 10 ? 'заканчивается' : 'есть в наличии'}
       </p>

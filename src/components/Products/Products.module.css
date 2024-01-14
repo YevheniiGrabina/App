@@ -1,23 +1,22 @@
 .productimg{
     border-radius: 10%;
-    border: 1px solid crimson;
     width: 100%;
     height: 100%;
 }
 .productTitle{
-    text-align: center;
-    margin-top: 30px;
+    margin-left: 10px;
+    text-align: left;
+    margin-top: 15px;
 }
 .productprice{
-    
-    text-align: center;
+    margin-left: 10px;
     color: crimson;
-    margin-top: 30px;
     line-height: 1.35em;
     font-size: 20px;
     font-weight: 700;
 }
 .productquan{
-    text-align: center;
+    margin-left: 10px;
+    text-align: left;
     margin-top: 20px;
 }

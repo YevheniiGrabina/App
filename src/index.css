@@ -3,7 +3,9 @@
 body {
   margin: 0;
   font-family: 'Exo 2', Arial, sans-serif;
-
+  background-image: url(/src/images/1627003882_11-p-fon-dlya-saita-rozovii-11.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

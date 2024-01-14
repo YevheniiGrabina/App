@@ -47,13 +47,13 @@ const Search = ({ items,  addToCart }) => {
       {selectedItems.length === 1 && (
           <div className={css.modal}>
           <div className={css.modalcontent}>
-            <img src={selectedItems[0].url} alt={selectedItems[0].title} />
-            <p>{selectedItems[0].title}</p>
-            <p>{selectedItems[0].description}</p>
-            <p>{selectedItems[0].price}</p>
+             <button className={css.closemodalbtn} onClick={closeModal}>x</button>
+            <img className={css.modalimg} src={selectedItems[0].url} alt={selectedItems[0].title} />
+            <p className={css.modaltitle}>{selectedItems[0].title}</p>
+            <p className={css.modalprice}>{selectedItems[0].price}</p>
+            <p className={css.modaldesc}>{selectedItems[0].description}</p>
             <p>{selectedItems[0].quantity}</p>
-             <button onClick={() => handleAddToCart(selectedItems[0])}>Добавить в корзину</button>
-               <button onClick={closeModal}>Закрыть</button>
+             <button className={css.modalbtn} onClick={() => handleAddToCart(selectedItems[0])}>Добавить в корзину</button>
           </div>
         </div>
       )}

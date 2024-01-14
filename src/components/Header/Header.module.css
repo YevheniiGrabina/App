@@ -1,6 +1,7 @@
 
 .navcontainer{
 background-image: url(/src/images/1627003882_11-p-fon-dlya-saita-rozovii-11.png);
+  
 position: fixed;
 display: flex;
 background-color: #fff;
@@ -44,16 +45,21 @@ border-bottom: 1px coral;
     top: 0;
 }
 .logo{
-   
-        @media screen and (max-width: 900px) {
+    display: block;
+        border-radius: 100%;
+        margin-left: auto;
+        background: transparent;
+
+        @media screen and (min-width: 768px) {
                 display: block;
-                margin-left: auto;
-                margin-right: auto;
                 border-radius: 100%;
+                margin-left: auto;
                 background: transparent;
     
     @media screen and (min-width: 1124px) {
-                 
+                display: block;
+                    border-radius: 100%;
+                    background: transparent;
            
         }
    
@@ -63,12 +69,15 @@ border-bottom: 1px coral;
     height: 100px;
     width: 100px;
     border-radius: 100%;
-    @media screen and (max-width: 768px) {
-            
+    @media screen and (min-width: 768px) {
+            height: 130px;
+            width: 130px;
         }
 }
 .navright{
     display: flex;
+    float: right;
+    margin-left: auto;
     @media screen and (min-width: 900px) {
         
         
@@ -91,6 +100,7 @@ border-bottom: 1px coral;
 .mobilesearch {
     background: transparent;
     border: none;
+    width: 40px;
     
 }
 .burger-title{

@@ -20,12 +20,14 @@
 }
 
 .productitem {
-    border-radius: 10px;
-    margin: 8px;
-    margin: 8px;
-    height: auto;
-    width: auto;
-    margin-bottom: 15px;
+    background: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* горизонтальное смещение, вертикальное смещение, размытие и цвет тени */
+        border-radius: 10px;
+        margin: 8px;
+        height: auto;
+        width: auto;
+        margin-bottom: 15px;
 }
 .productimg {
     border-radius: 10%;

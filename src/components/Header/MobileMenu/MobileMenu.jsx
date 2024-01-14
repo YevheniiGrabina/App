@@ -6,6 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import burgerclose from 'images/burderclose.png';
 
 
 const MobileMenu = ({ closeMobileMenu }) => {
@@ -17,9 +18,7 @@ const MobileMenu = ({ closeMobileMenu }) => {
   return (
     <div className={css.Burgermenu}>
       <h1 className={css.menuTitle}>МЕНЮ</h1>
-      <button className={`${css.burgerClose} ${css.menuLink}`} type='button' onClick={closeMobileMenu}>
-        &#8592;
-      </button>
+         <img className={css.burgerClose} src={burgerclose} alt="меню" width={350} height={30} onClick={closeMobileMenu}/>
         <AccordionSummary
           aria-controls="panel2a-content"
           id="panel2a-header"

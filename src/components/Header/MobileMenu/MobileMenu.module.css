@@ -37,12 +37,7 @@ background-color: #b78d8d;
 
 
 .burgerClose {
-    background-color: crimson;
-    /* Цвет кнопки закрытия бургера */
-    color: #ffffff;
-    border: 1px solid ;
-    border-color: #d1d1d1;
-    border-radius: 100%;
+    background: transparent;
     padding: 1px;
     height: 50px;
     width: 50px;

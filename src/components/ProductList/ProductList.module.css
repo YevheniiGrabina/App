@@ -9,8 +9,10 @@
 }
 
 .productitem {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* горизонтальное смещение, вертикальное смещение, размытие и цвет тени */
     border-radius: 10px;
-    margin: 8px;
     margin: 8px;
     height: auto;
     width: auto;
@@ -24,6 +26,7 @@
             max-width: 100%;
             max-height: 800px;
             overflow-y: auto;
+            
     @media screen and (min-width: 900px) {
                 position: fixed;
                 top: 0;
