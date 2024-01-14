@@ -1,5 +1,6 @@
 .contentContainer{
     margin-top: 110px;
+    background: white;
 }
 .closePageBtn{
     color: crimson;
@@ -16,7 +17,7 @@
     grid-row-gap: 2px;
     grid-column-gap: 3px;
     margin-top: 140px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .productitem {

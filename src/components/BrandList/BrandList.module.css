@@ -8,6 +8,7 @@
         grid-row-gap: 5px;
         grid-column-gap: 5px;
         align-items: center;
+        margin-bottom: 50px;
         
 }
 .Branditem{
@@ -15,4 +16,8 @@
     align-items: center;
     padding: 10px;
     margin: auto;
+    
+}
+.brandtimg{
+    background-color: transparent;
 }
