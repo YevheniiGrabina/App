@@ -9,7 +9,7 @@
     overflow-y: auto;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    width: 250px;
+    width: 350px;
 
     @media screen and (min-width: 1024px) {
         position: fixed;
@@ -24,29 +24,19 @@
 .carttitle {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 50px;
     text-align: center;
+    margin-left: auto;
     color: #000000; /* Темно-розовый цвет */
 }
 .alltitle{
     text-align: center;
     margin-top: 50px;
+    
 }
 /* Кнопка закрытия модального окна корзины */
-.cartclosebtn {
-    background-color: #ffffff; /* Темно-розовый цвет */
-    color: #ffffff; /* Белый цвет текста */
-    border: 1px solid;
-    border-color: #d1d1d1;
-    border-radius: 100%;
-    padding: 1px;
-    height: 50px;
-    width: 50px;
-    margin-left: -45px;
+.closemodal{
     top: 0;
-    position: fixed;
 }
-
 /* Список товаров в корзине */
 .cartlist {
     list-style-type: none;
@@ -109,7 +99,9 @@
   
     background: transparent;
    border: none;
-    height: 28px;
+   padding: 0;
+   height: 30px;
+    width: 30px;
     line-height: 5px;
     @media screen and (min-width: 1024px) {
     
@@ -122,7 +114,9 @@
 .countplus {
     border: none;
     background: transparent;
-    height: 28px;
+    padding: 0;
+        height: 30px;
+        width: 30px;
     @media screen and (min-width: 1024px) {
         
         height: 50px;
@@ -132,7 +126,7 @@
 
 /* Счетчик количества товара в корзине */
 .cartitemcount {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     line-height: 28px;
     height: 30px;
@@ -167,6 +161,7 @@
 
 /* Кнопка оформления заказа */
 .checkoutbtn {
+    margin-left:auto;
     background-color: #e91e63; /* Розовый цвет кнопки */
     color: white;
     padding: 10px 20px;

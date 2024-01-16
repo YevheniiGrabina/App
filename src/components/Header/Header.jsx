@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import MobileMenu from './MobileMenu/MobileMenu';
 import SearchModal from './SearchModal/SearchModal';
 import Cart from '../Header/Cart/Cart';
@@ -16,14 +18,13 @@ class Header extends Component {
       isMobileMenuOpen: false,
       isSearchOpen: false,
       isCartOpen: false,
-      
     };
   }
 
-  
- handleBrandsClick = () => {
+  handleBrandsClick = () => {
     // Ваш код здесь
   };
+
   openMobileMenu = () => {
     this.setState({ isMobileMenuOpen: true });
   };
@@ -52,11 +53,10 @@ class Header extends Component {
     });
   };
 
-    addToCart = (item) => {
-  // Логика добавления товара в корзину
-  this.props.addToCart(item);
-};
-
+  addToCart = (item) => {
+    // Логика добавления товара в корзину
+    this.props.addToCart(item);
+  };
 
   render() {
     const { cartItems, removeFromCart } = this.props;
@@ -72,56 +72,48 @@ class Header extends Component {
         <div className={css.logo}>
           <img className={css.logoimg} src={logo} alt="логотип" />
         </div>
+
         <div className={css.navsection}>
-          <ul className={css.navlist}>
-     <li className={css.navlink}>
-         <a className={css.navlistlink}  href="/">Головна</a>
-     </li>
-     <li className={css.navlistitem}>
-      <span className={css.navlistlink}  href="/">
-        <select name="user_city" className={css.select}>
-            <option   value="1">Магазин</option>
-            <option className={css.option} value="2">Бренди</option>
-            
-        </select>
-              </span>
-              
-            </li>
-              <li className={css.navlink}>
-         <a className={css.navlistlink}  href="/">Про нас</a>
-     </li>
-      <li className={css.navlistitem}>
-         <a className={css.navlistlink} href="/">Контакти</a>
-      </li>
-          <li className={css.navlistitem}>
-         <a className={css.navlistlink} href="/">Доставка і оплата</a>
-            </li>
-            
-          </ul>
-          </div>
+          <Navbar expand="lg">
+            <Nav.Link as={Link} to="/App" className={`mr-3 ${css.navLink}`} >Головна</Nav.Link>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto">
+                <Nav.Link href="/" className={`mr-3 ${css.navLink}`}>Про нас</Nav.Link>
+                <NavDropdown title="Магазин" id="basic-nav-dropdown" className={`mr-3 ${css.navLink}`}>
+                  <NavDropdown.Item as={Link} to="/brands">Бренди</NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link href="/" className={`mr-3 ${css.navLink}`}>Контакти</Nav.Link>
+                <Nav.Link href="/" className={`mr-3 ${css.navLink}`}>Доставка і оплата</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </div>
+
         <div className={css.navright}>
           <button className={css.mobilesearch} href="#" onClick={this.openSearch}>
             <img
-              src= {search} 
+              src={search}
               alt="search"
             />
           </button>
-          
+
           {this.state.isSearchOpen && (
             <SearchModal isSearchOpen={this.closeSearch} addToCart={this.addToCart} />
           )}
+
           <div>
             <button className={css.basket} onClick={this.openCart}>
               <img src={basket} alt="корзина" width={30} height={30} />
               <span className={css.cartCounter}>{cartItems.length}</span>
             </button>
-            </div>
-            {this.state.isCartOpen && (
-              <Cart items={cartItems} closeCart={this.closeCart} removeFromCart={removeFromCart} />
-            )}
           </div>
+
+          {this.state.isCartOpen && (
+            <Cart items={cartItems} closeCart={this.closeCart} removeFromCart={removeFromCart} />
+          )}
         </div>
-     
+      </div>
     );
   }
 }

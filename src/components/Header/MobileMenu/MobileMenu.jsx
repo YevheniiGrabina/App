@@ -17,8 +17,9 @@ const MobileMenu = ({ closeMobileMenu }) => {
 
   return (
     <div className={css.Burgermenu}>
+       <img className={css.burgerClose} src={burgerclose} alt="меню" width={350} height={30} onClick={closeMobileMenu}/>
       <h1 className={css.menuTitle}>МЕНЮ</h1>
-         <img className={css.burgerClose} src={burgerclose} alt="меню" width={350} height={30} onClick={closeMobileMenu}/>
+        
         <AccordionSummary
           aria-controls="panel2a-content"
           id="panel2a-header"

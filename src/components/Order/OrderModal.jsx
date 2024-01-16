@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
 import css from './OrderModal.module.css';
 
 const OrderModal = ({ items, itemCounts, onClose, closeCart }) => {
@@ -26,52 +27,69 @@ const OrderModal = ({ items, itemCounts, onClose, closeCart }) => {
     setPhoneNumber(e.target.value);
   };
 
+  const handleOrderSubmit = () => {
+    // Ваша логика обработки заказа
+    // Закрываем модальное окно после успешного оформления заказа
+    onClose();
+    // Закрываем корзину (если это необходимо)
+    closeCart();
+  };
+
   return (
-    <div className={css.OrderModal}>
-      <div className={css.OrderHeader}>
-        <h2>Оформлення замовлення</h2>
-        <button onClick={onClose}>x</button>
-      </div>
-      <div className={css.OrderItems}>
-        {items.map((item, index) => (
-          <div key={item.id} className={css.OrderItem}>
-            <img src={item.url} alt={item.title} />
-            <div className={css.ItemDetails}>
-              <p className={css.ItemTitle}>{item.title}</p>
-              <p>Количество: {itemCounts[index]}</p>
-              <p>Цена: {item.price} Грн.</p>
-              <p>Сумма: {item.price * itemCounts[index]} Грн.</p>
+    <Modal show={true} onHide={onClose} dialogClassName={css.OrderModal}>
+      <Modal.Header closeButton>
+        <Modal.Title>Оформлення замовлення</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className={css.OrderItems}>
+          {items.map((item, index) => (
+            <div key={item.id} className={css.OrderItem}>
+              <img src={item.url} alt={item.title} />
+              <div className={css.ItemDetails}>
+                <p className={css.ItemTitle}>{item.title}</p>
+                <p>Количество: {itemCounts[index]}</p>
+                <p>Цена: {item.price} Грн.</p>
+                <p>Сумма: {item.price * itemCounts[index]} Грн.</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className={css.OrderTotal}>
-        <p>Всего: {totalCost} Грн.</p>
-        <label htmlFor="firstName">Имя:</label>
-        <input
-          type="text"
-          id="firstName"
-          value={firstName}
-          onChange={handleFirstNameChange}
-        />
-
-        <label htmlFor="lastName">Фамилия:</label>
-        <input
-          type="text"
-          id="lastName"
-          value={lastName}
-          onChange={handleLastNameChange}
-        />
-
-        <label htmlFor="phoneNumber">Номер телефона:</label>
-        <input
-          type="tel"
-          id="phoneNumber"
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-        />
-      </div>
-    </div>
+          ))}
+        </div>
+        <div className={css.OrderTotal}>
+          <p>Всего: {totalCost} Грн.</p>
+          <Form>
+            <Form.Group controlId="firstName">
+              <Form.Label>Имя:</Form.Label>
+              <Form.Control
+                type="text"
+                value={firstName}
+                onChange={handleFirstNameChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="lastName">
+              <Form.Label>Фамилия:</Form.Label>
+              <Form.Control
+                type="text"
+                value={lastName}
+                onChange={handleLastNameChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="phoneNumber">
+              <Form.Label>Номер телефона:</Form.Label>
+              <Form.Control
+                type="tel"
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
+              />
+            </Form.Group>
+          </Form>
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={handleOrderSubmit}>
+          Оформить заказ
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 

@@ -2,13 +2,31 @@
     display: none;
 }
 .Brandlist{
-    display: grid;
-        grid-template-columns: repeat(2, 200px);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
         justify-content: space-between;
         grid-row-gap: 5px;
         grid-column-gap: 5px;
         align-items: center;
         margin-bottom: 50px;
+        /* @media screen and (min-width: 768px) {
+            display: grid;
+                grid-template-columns: repeat(3, 300px);
+                justify-content: space-between;
+                grid-row-gap: 5px;
+                grid-column-gap: 5px;
+                align-items: center;
+                margin-bottom: 50px;
+        }
+        @media screen and (min-width: 1023px) {
+                    display: grid;
+                    grid-template-columns: repeat(3, 300px);
+                    justify-content: space-between;
+                    grid-row-gap: 5px;
+                    grid-column-gap: 5px;
+                    align-items: center;
+                    margin-bottom: 50px;
+            } */
         
 }
 .Branditem{
@@ -16,8 +34,17 @@
     align-items: center;
     padding: 10px;
     margin: auto;
+    @media screen and (min-width: 1023px) {
+       
+    }
     
 }
 .brandtimg{
     background-color: transparent;
+    height: auto;
+    width: auto;
+    @media screen and (min-width: 1023px) {
+        height: auto;
+            width: auto;
+    }
 }

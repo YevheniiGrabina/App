@@ -193,3 +193,14 @@
 
     @media screen and (min-width: 768px) {}
 }
+.hearth {
+    background: transparent;
+    border: none;
+    float: right;
+    margin-top: 3px;
+
+}
+
+.closePageBtn{
+    
+}

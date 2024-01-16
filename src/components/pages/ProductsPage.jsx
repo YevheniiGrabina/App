@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Подключаем стили Bootstrap
 import { Button, Modal } from 'react-bootstrap'; // Импортируем нужные компоненты Bootstrap
 import Header from '../Header/Header';
+import hearth from '..//../images/hearth.png';
 import FixMenu from '../FixMenu/FixMenu';
 import Products from '../Products/Products';  // Предполагаем, что у вас есть компонент ProductItem
 import products from '../data/product.json';
@@ -45,6 +46,9 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
         <ul className={css.productlist}>
           {filteredProducts.map((item) => (
             <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
+              <button className={css.hearth}>
+              <img src={hearth} alt="корзина" width={25} height={25} />
+            </button>
               <Products
                 url={item.url}
                 title={item.title}

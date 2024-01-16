@@ -30,9 +30,9 @@ const ProductsList = ({ items, addToCart }) => {
       <ul className={css.productlist}>
         {items.map((item) => (
           <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
-            <Button className={css.hearth}>
+            <button className={css.hearth}>
               <img src={hearth} alt="корзина" width={25} height={25} />
-            </Button>
+            </button>
             {item && (
               <Products
                 url={item.url}
@@ -44,10 +44,10 @@ const ProductsList = ({ items, addToCart }) => {
         ))}
       </ul>
 
-      <Modal show={!!selectedItem} onHide={closeModal}>
+      <Modal  dialogClassName={`${css.customModalWidth}`} className={`${css.modal}`} show={!!selectedItem} onHide={closeModal}>
         <Modal.Header closeButton>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className={`${css.modalcontent}`}>
           <img className={css.modalimg} src={selectedItem?.url} alt={selectedItem?.title} />
            <p className={css.modaltitle}>{selectedItem?.title}</p>
           <p className={css.modalprice}>Ціна: {selectedItem?.price}₴</p>
