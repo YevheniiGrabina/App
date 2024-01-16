@@ -1,13 +1,36 @@
-// OrderModal.js
-import React from 'react';
+import React, { useState } from 'react';
 import css from './OrderModal.module.css';
 
-const OrderModal = ({ items, itemCounts, totalCost, onClose, closeCart }) => {
+const OrderModal = ({ items, itemCounts, onClose, closeCart }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const calculateTotalCost = () => {
+    return items.reduce((acc, item, index) => {
+      return acc + item.price * itemCounts[index];
+    }, 0);
+  };
+
+  const totalCost = calculateTotalCost();
+
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+
   return (
     <div className={css.OrderModal}>
       <div className={css.OrderHeader}>
-        <h2>Детали заказа</h2>
-        <button onClick={onClose}>Закрыть</button>
+        <h2>Оформлення замовлення</h2>
+        <button onClick={onClose}>x</button>
       </div>
       <div className={css.OrderItems}>
         {items.map((item, index) => (
@@ -23,9 +46,30 @@ const OrderModal = ({ items, itemCounts, totalCost, onClose, closeCart }) => {
         ))}
       </div>
       <div className={css.OrderTotal}>
-        <p>Всього: {totalCost} Грн.</p>
-        {/* Добавьте дополнительные поля для ввода информации о заказе, если необходимо */}
-        {/* Например: имя, адрес, телефон и т. д. */}
+        <p>Всего: {totalCost} Грн.</p>
+        <label htmlFor="firstName">Имя:</label>
+        <input
+          type="text"
+          id="firstName"
+          value={firstName}
+          onChange={handleFirstNameChange}
+        />
+
+        <label htmlFor="lastName">Фамилия:</label>
+        <input
+          type="text"
+          id="lastName"
+          value={lastName}
+          onChange={handleLastNameChange}
+        />
+
+        <label htmlFor="phoneNumber">Номер телефона:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+        />
       </div>
     </div>
   );

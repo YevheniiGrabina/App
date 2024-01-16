@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import Products from '../Products/Products';
-import hearth from '..//../images/hearth.png'
-
+import hearth from '..//../images/hearth.png';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Подключаем стили Bootstrap
+import { Button, Modal } from 'react-bootstrap'; // Импортируем нужные компоненты Bootstrap
 import css from './ProductList.module.css';
 
 const ProductsList = ({ items, addToCart }) => {
   const [selectedItem, setSelectedItem] = useState(null);
-  const [shuffledItems, setShuffledItems] = useState([]);
-
-  useEffect(() => {
-    // Перемешиваем массив при изменении items
-    const shuffleItems = () => {
-      const shuffled = [...items].sort(() => Math.random() - 0.5);
-      setShuffledItems(shuffled);
-    };
-
-    shuffleItems();
-  }, [items]);
 
   const openModal = (item) => {
     setSelectedItem(item);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedItem(null);
-  };
+  }, []);
 
   const handleAddToCart = () => {
     if (selectedItem) {
@@ -38,40 +28,37 @@ const ProductsList = ({ items, addToCart }) => {
   return (
     <div>
       <ul className={css.productlist}>
-        {shuffledItems.map((item) => (
-          <li key={item ? item.id : 'default'} className={css.productitem} onClick={() => openModal(item)}>
-              <button className={css.hearth}>
+        {items.map((item) => (
+          <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
+            <Button className={css.hearth}>
               <img src={hearth} alt="корзина" width={25} height={25} />
-        </button>
+            </Button>
             {item && (
               <Products
                 url={item.url}
                 price={item.price}
                 title={item.title}
-                // quantity={item.quantity}
               />
             )}
           </li>
         ))}
       </ul>
 
-      {selectedItem && (
-        <div className={css.modal}>
-          <div className={css.modalcontent}>
-            <button className={css.closemodalbtn} onClick={closeModal}>
-              X
-            </button>
-            <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
-            <p className={css.modaltitle}>{selectedItem.title}</p>
-            <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-            <p className={css.modaldesc}>{selectedItem.description}</p>
-              <button className={css.modalbtn} onClick={handleAddToCart}>
-              У кошик
-            </button>
-          </div>
-          
-        </div>
-      )}
+      <Modal show={!!selectedItem} onHide={closeModal}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <img className={css.modalimg} src={selectedItem?.url} alt={selectedItem?.title} />
+           <p className={css.modaltitle}>{selectedItem?.title}</p>
+          <p className={css.modalprice}>Ціна: {selectedItem?.price}₴</p>
+          <p className={css.modaldesc}>{selectedItem?.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleAddToCart}>
+            У кошик
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Подключаем стили Bootstrap
+import { Button, Modal } from 'react-bootstrap'; // Импортируем нужные компоненты Bootstrap
 import Header from '../Header/Header';
 import FixMenu from '../FixMenu/FixMenu';
 import Products from '../Products/Products';  // Предполагаем, что у вас есть компонент ProductItem
@@ -56,21 +58,24 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
       ) : (
         <p>No products found for {brandName}.</p>
       )}
-      {selectedItem && (
-        <div className={css.modal}>
-          <div className={css.modalcontent}>
-            <button className={css.closemodalbtn} onClick={closeModal}>X</button>
-            <img className={css.modalimg} src={selectedItem.url} alt={selectedItem.title} />
-            <p className={css.modaltitle}>{selectedItem.title}</p>
-             <p className={css.modalprice}>Ціна:{selectedItem.price}₴</p>
-            <p className={css.modaldesc}>{selectedItem.description}</p>
-            <button  className={css.modalbtn} onClick={() => handleAddToCart(selectedItem)}>Добавить в корзину</button>
-            
-          </div>
-        </div>
-      )}
+       <Modal show={!!selectedItem} onHide={closeModal}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <img className={css.modalimg} src={selectedItem?.url} alt={selectedItem?.title} />
+           <p className={css.modaltitle}>{selectedItem?.title}</p>
+          <p className={css.modalprice}>Ціна: {selectedItem?.price}₴</p>
+          <p className={css.modaldesc}>{selectedItem?.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleAddToCart}>
+            У кошик
+          </Button>
+        </Modal.Footer>
+      </Modal>
        <FixMenu cartItems={cartItems} removeFromCart={removeFromCart} />
-    </div>
+    </div >
+
   );
 };
 

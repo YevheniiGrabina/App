@@ -49,9 +49,9 @@ justify-content: space-between;
     /* Цвет фона для счетчика */
     color: white;
     /* Цвет текста для счетчика */
-    border-radius: 50%;
+    border-radius: 100%;
     /* Для круглой формы */
-    padding: 2px 6px;
+    padding: 0px 7px;
     /* Внутренний отступ для красоты */
     position: absolute;
     /* Позиционирование относительно иконки корзины */

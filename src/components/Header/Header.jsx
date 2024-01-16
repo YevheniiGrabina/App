@@ -104,7 +104,6 @@ class Header extends Component {
             <img
               src= {search} 
               alt="search"
-              width={30} height={30}
             />
           </button>
           
