@@ -47,7 +47,7 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
           {filteredProducts.map((item) => (
             <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
               <button className={css.hearth}>
-              <img src={hearth} alt="корзина" width={25} height={25} />
+              <img className={css.hearthimg} src={hearth} alt="корзина" width={25} height={25} />
             </button>
               <Products
                 url={item.url}

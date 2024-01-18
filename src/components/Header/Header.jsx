@@ -62,6 +62,7 @@ class Header extends Component {
     const { cartItems, removeFromCart } = this.props;
 
     return (
+      <div className={css.header}>
       <div className={css.navcontainer}>
         <button type='button' className={css.burger} onClick={this.openMobileMenu}>
           <img src={menuicon} alt="меню" width={30} height={30} />
@@ -113,7 +114,8 @@ class Header extends Component {
             <Cart items={cartItems} closeCart={this.closeCart} removeFromCart={removeFromCart} />
           )}
         </div>
-      </div>
+        </div>
+        </div>
     );
   }
 }

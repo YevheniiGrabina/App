@@ -46,10 +46,11 @@ const FixMenu = ({ cartItems, removeFromCart }) => {
               <Cart items={cartItems} closeCart={closeCart} removeFromCart={removeFromCart} />
             )}
          
-           
+           <Link to="/wishlist">
              <button className={css.hearth}>
               <img src={hearth} alt="корзина" width={35} height={30} />
-        </button>
+            </button>
+            </Link>
         </ul>
       </center>
     </div>

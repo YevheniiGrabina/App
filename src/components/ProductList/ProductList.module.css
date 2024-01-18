@@ -1,30 +1,42 @@
 .productlist {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 2fr));
     justify-content: space-between;
     grid-row-gap: 2px;
     grid-column-gap:3px;
     margin-top: 140px;
     margin-bottom: 80px;
+   
+    @media screen and (min-width: 1023px) {
+            display: grid;
+            justify-content: space-between;
+            grid-row-gap: 2px;
+            grid-column-gap: 3px;
+            margin-top: 140px;
+            margin-bottom: 80px;
+    }
 }
 
 .productitem {
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* горизонтальное смещение, вертикальное смещение, размытие и цвет тени */
     border-radius: 10px;
     margin: 8px;
     height: auto;
     width: auto;
     margin-bottom: 15px;
+    
 }
 
 .hearth{
-    background: transparent;
-    border: none;
+    background: transparent; 
+    border: none; 
     float: right;
     margin-top: 3px;
 
+}
+.hearth:focus{
+    background-color: red;
 }
 /* Модальне вікно */
 .modal{

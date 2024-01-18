@@ -6,9 +6,17 @@ import BrandPage from './pages/BrandPage';
 import ProductsPage from './pages/ProductsPage';
 import product from './data/product.json';
 import FixMenu from './FixMenu/FixMenu';
+import WishlistPage from './pages/WishlistPage';
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [wishlistItems, setWishlistItems] = useState([]);
+
+ const addToWishlist = (item) => {
+  console.log("Adding to wishlist:", item);
+  setWishlistItems((prevItems) => [...prevItems, item]);
+  console.log("Wishlist after adding:", wishlistItems);
+};
 
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
@@ -26,7 +34,7 @@ export default function App() {
         element={
           <>
             <Header cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
-            <ProductsList items={product} addToCart={addToCart} />
+            <ProductsList items={product} addToCart={addToCart} addToWishlist={addToWishlist} />
             <FixMenu cartItems={cartItems} removeFromCart={removeFromCart} />
           </>
         }
@@ -36,7 +44,7 @@ export default function App() {
         element={<BrandPage cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />}
       />
       <Route path="/brands/:brandName" element={<ProductsPage cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />} />
-      
+       <Route path="/wishlist" element={<WishlistPage wishlistItems={wishlistItems}  />} />
     </Routes>
   );
 }

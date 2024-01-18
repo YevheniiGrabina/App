@@ -7,7 +7,6 @@ const Product = ({
   title,
   description,
   price,
-  quantity,
   variants,
   onSelectVariant
 }) => {
@@ -21,6 +20,7 @@ const Product = ({
       <p className={css.productprice}>{price} ₴</p>
       <p className={css.productTitle}>{title}</p>
       <p className={css.productdesc}>{description}</p>
+    
       
       {/* <p className={css.productquan}>
         {quantity < 10 ? 'заканчивается' : 'есть в наличии'}
