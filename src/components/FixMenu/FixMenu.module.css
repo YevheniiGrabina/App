@@ -46,6 +46,7 @@
     align-items: center;
     position: relative;
     align-items: center;
+    margin-top: 5px;
 }
 .cartCounter {
     background-color: red;
@@ -217,24 +218,24 @@
 .hearth {
     background: transparent;
     border: none;
-    margin-top: 3px;
+    margin-top: 5px;
 
 }
 .category{
     background: transparent;
         border: none;
-        margin-top: 3px;
+        margin-top: 5px;
 }
 .house{
     background: transparent;
         border: none;
-        margin-top: 3px;
+        margin-top: 5px;
     }
 
     .icontext{
         color: #000;
         text-align: center;
         justify-content: center;
-        padding: -5px;
+            line-height: 1.2;
     }
   

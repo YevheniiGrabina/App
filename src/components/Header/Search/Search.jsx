@@ -66,7 +66,7 @@ const Search = ({ items, addToCart }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button
-              variant="primary"
+              variant="dark"
               onClick={() => handleAddToCart(selectedItem)}
             >
               У кошик
