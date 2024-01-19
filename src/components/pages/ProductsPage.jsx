@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Подключаем стили Bootstrap
 import { Button, Modal } from 'react-bootstrap'; // Импортируем нужные компоненты Bootstrap
 import Header from '../Header/Header';
+import burgerclose from 'images/burderclose.png';
 import hearth from '..//../images/hearth.png';
 import FixMenu from '../FixMenu/FixMenu';
 import Products from '../Products/Products';  // Предполагаем, что у вас есть компонент ProductItem
@@ -39,7 +40,7 @@ const ProductsPage = ({ cartItems, addToCart, removeFromCart }) => {
     <div>
       <Header cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
       <button className={css.closePageBtn} type="button" onClick={closePage}>
-       Назад
+       <img className={css.burgerClose} src={burgerclose} alt="меню" width={350} height={30}/>
       </button>
       <h2>{`Products for ${brandName}`}</h2>
       {filteredProducts.length > 0 ? (

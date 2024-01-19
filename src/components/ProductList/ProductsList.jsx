@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Products from '../Products/Products';
-import hearth from '..//../images/hearth.png';
+import hearth from '..//../images/heart.png';
+import redHearth from '..//../images/heart1.png'; // Импортируйте красную иконку сердца
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'react-bootstrap';
 import css from './ProductList.module.css';
@@ -8,9 +9,16 @@ import css from './ProductList.module.css';
 const ProductsList = ({ items, addToCart, addToWishlist }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [heartClicked, setHeartClicked] = useState({}); // Создайте объект состояния для каждого товара
 
   const handleAddToWishlist = (item) => {
     addToWishlist(item);
+  };
+
+  const handleHeartClick = (e, item) => {
+    e.stopPropagation();
+    setHeartClicked(prevState => ({ ...prevState, [item.id]: !prevState[item.id] })); // Обновите состояние для конкретного товара
+    handleAddToWishlist(item);
   };
 
   const openModal = useCallback((item) => {
@@ -38,8 +46,8 @@ const ProductsList = ({ items, addToCart, addToWishlist }) => {
         {items.map((item) => (
           <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
             <div>
-              <button className={css.hearth} onClick={(e) => { e.stopPropagation(); handleAddToWishlist(item); }}>
-                <img src={hearth} alt="корзина" width={25} height={25} />
+              <button className={css.hearth} onClick={(e) => handleHeartClick(e, item)}>
+                <img src={heartClicked[item.id] ? redHearth : hearth} alt="серце" width={20} height={25} />
               </button>
             </div>
             {item && (

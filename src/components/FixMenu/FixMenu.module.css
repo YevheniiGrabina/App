@@ -1,21 +1,23 @@
 
 .altmenu {
     width: 100%;
-    height: 50px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
     background: white;
     position: fixed;
     bottom: 0px;
     left: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-top: 1px solid #aba;
     @media screen and (min-width: 900px) {
         display: none;
     }
 }
 
-.altmenu ul {
-display: flex;
-justify-content: space-between;
-   
+.fixlink{
+   text-align: center;
 }
 .altmenu ul li a {
     position: relative;
@@ -43,18 +45,15 @@ justify-content: space-between;
     border: none;
     align-items: center;
     position: relative;
+    align-items: center;
 }
 .cartCounter {
     background-color: red;
-    /* Цвет фона для счетчика */
     color: white;
-    /* Цвет текста для счетчика */
     border-radius: 100%;
-    /* Для круглой формы */
-    padding: 0px 7px;
-    /* Внутренний отступ для красоты */
+    width: 15px;
+    height: 15px;
     position: absolute;
-    /* Позиционирование относительно иконки корзины */
     top: 0;
     right: 0;
 }
@@ -231,3 +230,11 @@ justify-content: space-between;
         border: none;
         margin-top: 3px;
     }
+
+    .icontext{
+        color: #000;
+        text-align: center;
+        justify-content: center;
+        padding: -5px;
+    }
+  
