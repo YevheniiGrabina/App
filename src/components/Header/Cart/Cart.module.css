@@ -71,7 +71,6 @@
 
 /* Кнопка удаления товара из корзины */
 .itemclosebtn {
-    background: none;
     border: none;
     font-size: 20px;
     display: inline-block;

@@ -41,7 +41,7 @@ const Cart = ({ items, closeCart, removeFromCart }) => {
 
   return (
     <Modal show={true} onHide={closeCart} dialogClassName={css.cartmodal}>
-      <Modal.Header  closeButton>
+      <Modal.Header className={`${css.closemodal}`} closeButton>
         <Modal.Title className={css.carttitle}>Мій кошик ({items.length})</Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -1,4 +1,5 @@
 import React from 'react';
+ import { toast } from 'react-toastify';
 import { Modal } from 'react-bootstrap';
 import css from './WishList.module.css';
 
@@ -7,6 +8,9 @@ const WishList = ({ wishlistItems, closeWishList, removeFromWishList }) => {
 
   const handleRemoveFromWishlist = (itemId) => {
     removeFromWishList(itemId);
+     toast.error("Видалено з вподабань", {
+        position: "top-right"
+      });
   };
 
   return (
@@ -17,9 +21,9 @@ const WishList = ({ wishlistItems, closeWishList, removeFromWishList }) => {
       <Modal.Body>
         {wishlistItems && wishlistItems.length > 0 ? (
           <div>
-            <ul className={css.productlist}>
+            <ul className={css.wslist}>
               {wishlistItems.map((item) => (
-                <li key={item.id} className={css.productitem}>
+                <li key={item.id} className={css.wishlistitem}>
                   <button
                     className={css.itemclosebtn}
                     onClick={() => handleRemoveFromWishlist(item.id)}
@@ -27,8 +31,9 @@ const WishList = ({ wishlistItems, closeWishList, removeFromWishList }) => {
                     х
                   </button>
                   <img className={css.wsimg} src={item.url} alt={item.title} />
-                  <p className={css.wsprice}>Ціна: {item.price}₴</p>
                   <p className={css.wstitle}>{item.title}</p>
+                  <p className={css.wsprice}>Ціна: {item.price}₴</p>
+                  
                 </li>
               ))}
             </ul>

@@ -7,7 +7,7 @@ import { Button, Modal } from 'react-bootstrap';
   import "react-toastify/dist/ReactToastify.css";
 import css from './ProductList.module.css';
 
-const ProductsList = ({ items, addToCart, addToWishlist }) => {
+const ProductsList = ({ items, addToCart, addToWishlist, removeFromWishlist }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [heartClicked, setHeartClicked] = useState({});
@@ -30,10 +30,24 @@ const ProductsList = ({ items, addToCart, addToWishlist }) => {
 
   };
 
-  const handleHeartClick = (e, item) => {
+   const handleHeartClick = (e, item) => {
     e.stopPropagation();
-    setHeartClicked((prevState) => ({ ...prevState, [item.id]: !prevState[item.id] }));
-    handleAddToWishlist(item);
+    setHeartClicked((prevState) => {
+      const updatedHeartClicked = { ...prevState, [item.id]: !prevState[item.id] };
+
+      if (updatedHeartClicked[item.id]) {
+        // Если товар еще не был в вишлисте, добавляем
+        handleAddToWishlist(item);
+      } else {
+        // Если товар уже был в вишлисте, удаляем
+        removeFromWishlist(item.id);
+        toast.error("Видалено з вподабань", {
+        position: "top-right"
+      });
+      }
+
+      return updatedHeartClicked;
+    });
   };
 
   const handleAddToCart = () => {

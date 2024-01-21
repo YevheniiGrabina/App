@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import ProductsList from './ProductList/ProductsList';
@@ -11,10 +11,14 @@ export default function App() {
   const [cartItems, setCartItems] = useState([]);
   const [wishlistItems, setWishlistItems] = useState([]);
 
+
   const addToWishlist = (item) => {
     setWishlistItems((prevItems) => [...prevItems, item]);
   };
 
+  const removeFromWishlist = (itemId) => {
+    setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
   };
@@ -31,6 +35,9 @@ export default function App() {
     setWishlistItems((prevWishlistItems) => prevWishlistItems.filter((item) => item.id !== itemId));
   };
 
+    useEffect(() => {
+    // Ваш код, который может быть вызван после обновления wishlistItems
+  }, [wishlistItems]);
   return (
     <Routes>
       <Route
@@ -38,7 +45,13 @@ export default function App() {
         element={
           <>
             <Header cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} />
-            <ProductsList items={product} addToCart={addToCart} wishlistItems={wishlistItems} addToWishlist={addToWishlist} />
+               <ProductsList
+              items={product}
+              addToCart={addToCart}
+              wishlistItems={wishlistItems}
+              addToWishlist={addToWishlist}
+              removeFromWishlist={removeFromWishlist} // Передаем removeFromWishlist
+            />
             <FixMenu cartItems={cartItems} removeFromCart={removeFromCart} wishlistItems={wishlistItems} removeFromWishList={removeFromWishList} />
           </>
         }
