@@ -1,0 +1,29 @@
+.cartmodal {
+    position: fixed;
+    margin: 0;
+    right: 0;
+    height: 100%;
+    background-color: #ffffff;
+    /* Розовый цвет фона */
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 350px;
+
+    @media screen and (min-width: 1024px) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 800px;
+    }
+}
+.wishlisttitle {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    color: #000000;
+    /* Темно-розовый цвет */
+}

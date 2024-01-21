@@ -12,7 +12,7 @@
     padding-right: 15px;
     border-top: 1px solid #aba;
     @media screen and (min-width: 900px) {
-        display: none;
+        
     }
 }
 
@@ -215,7 +215,7 @@
     justify-content: space-between;
 }
 
-.hearth {
+.heart {
     background: transparent;
     border: none;
     margin-top: 5px;
@@ -237,5 +237,8 @@
         text-align: center;
         justify-content: center;
             line-height: 1.2;
+    }
+    .redHearth{
+        color: red;
     }
   

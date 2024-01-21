@@ -1,25 +1,16 @@
 import React, { useState, useCallback } from 'react';
 import Products from '../Products/Products';
 import hearth from '..//../images/heart.png';
-import redHearth from '..//../images/heart1.png'; // Импортируйте красную иконку сердца
-import 'bootstrap/dist/css/bootstrap.min.css';
+import redHearth from '..//../images/heart1.png';
 import { Button, Modal } from 'react-bootstrap';
+ import { toast, ToastContainer } from 'react-toastify';
+  import "react-toastify/dist/ReactToastify.css";
 import css from './ProductList.module.css';
 
 const ProductsList = ({ items, addToCart, addToWishlist }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [heartClicked, setHeartClicked] = useState({}); // Создайте объект состояния для каждого товара
-
-  const handleAddToWishlist = (item) => {
-    addToWishlist(item);
-  };
-
-  const handleHeartClick = (e, item) => {
-    e.stopPropagation();
-    setHeartClicked(prevState => ({ ...prevState, [item.id]: !prevState[item.id] })); // Обновите состояние для конкретного товара
-    handleAddToWishlist(item);
-  };
+  const [heartClicked, setHeartClicked] = useState({});
 
   const openModal = useCallback((item) => {
     setSelectedItem(item);
@@ -31,17 +22,30 @@ const ProductsList = ({ items, addToCart, addToWishlist }) => {
     setIsModalOpen(false);
   }, []);
 
+  const handleAddToWishlist = (item) => {
+    addToWishlist(item);
+    toast.success("Додано у вподобання", {
+        position: "top-right"
+      });
+
+  };
+
+  const handleHeartClick = (e, item) => {
+    e.stopPropagation();
+    setHeartClicked((prevState) => ({ ...prevState, [item.id]: !prevState[item.id] }));
+    handleAddToWishlist(item);
+  };
+
   const handleAddToCart = () => {
     if (selectedItem) {
-      addToCart({
-        ...selectedItem,
-      });
+      addToCart(selectedItem);
       closeModal();
     }
   };
 
   return (
     <div>
+      <ToastContainer autoClose={2000} />
       <ul className={css.productlist}>
         {items.map((item) => (
           <li key={item.id} className={css.productitem} onClick={() => openModal(item)}>
@@ -51,11 +55,7 @@ const ProductsList = ({ items, addToCart, addToWishlist }) => {
               </button>
             </div>
             {item && (
-              <Products 
-                url={item.url}
-                price={item.price}
-                title={item.title}
-              />
+              <Products url={item.url} price={item.price} title={item.title} />
             )}
           </li>
         ))}
